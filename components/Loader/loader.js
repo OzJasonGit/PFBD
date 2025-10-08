@@ -3,7 +3,7 @@ import styles from "./loader.module.css"
 
 const SkeletonLoader = () => {
   return (
-  <span className={styles.loader}>bimcopilot</span>
+  <span className={styles.loader}>Plastic Free By Design</span>
   )
 
 }
