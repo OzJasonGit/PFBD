@@ -3,7 +3,7 @@ import styles from "./loader.module.css"
 
 const SkeletonLoader = () => {
   return (
-  <span className={styles.loader}>PFBD</span>
+  <span className={styles.loader}>P F B D</span>
   )
 
 }
