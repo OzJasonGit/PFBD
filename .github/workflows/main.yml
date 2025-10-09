@@ -1,3 +1,5 @@
+name: Deploy to Production
+
 env:
   DEBUG: true  # Optional environment variable for debugging
 
@@ -13,16 +15,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Use nvm with Node.js 20
+      - name: Setup Node.js 20
         uses: actions/setup-node@v3
         with:
-          use-nvm: true  # Use nvm to manage Node.js versions
-          node-version: 20  # Specify the desired Node.js version
-
-      - name: Install nvm (if needed)
-        run: |
-          curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-          source ~/.bashrc  # Source the .bashrc file after installation
+          node-version: '20'
+          cache: 'npm'
 
       - name: Deploy using ssh
         uses: appleboy/ssh-action@master
