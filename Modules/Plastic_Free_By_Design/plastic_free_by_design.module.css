@@ -168,12 +168,12 @@
 }
 
 
-#ROW_1{
+#ROW_1 {
   width: auto;
   height: auto;
 }
 
-#ROW_2{
+#ROW_2 {
   width: auto;
   height: auto;
 }
@@ -195,11 +195,13 @@
 
 /* Featured card positioning */
 .cardRight {
-  grid-column: 1 / span 2; /* starts at 2nd column, spans 2 */
+  grid-column: 1 / span 2;
+  /* starts at 2nd column, spans 2 */
 }
 
 .cardLeft {
-  grid-column: 1 / span 2; /* starts at 1st column, spans 2 */
+  grid-column: 1 / span 2;
+  /* starts at 1st column, spans 2 */
 }
 
 /* Image wrapper with fixed ratio */
@@ -210,7 +212,8 @@
 }
 
 .cardLarge .imageWrapper {
-  aspect-ratio: 2 / 1.4; /* wide and tall */
+  aspect-ratio: 2 / 1.4;
+  /* wide and tall */
 }
 
 .image {
@@ -254,7 +257,9 @@
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 
@@ -309,39 +314,36 @@
 @media all and (min-width: 960px) and (max-width: 1280px) {
 
   .grid_0_product {
-      width: 100%;
-      max-width: 1520px;
-      background-color: rgb(23 23 23);
-      display: grid;
-      grid-column-gap: 20px;
-      grid-row-gap: 20px;
-      grid-template-rows: 100px auto 20px;
-      grid-template-columns: 20px 1fr 20px;
-      grid-template-areas:
-        ". . ."
-        ". MAIN-AREA ."
-        ". . .";
-    }
-
-
-
-
-
-    #PFBD_INTRO {
-      display: grid;
-      grid-area: MAIN-AREA;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-      grid-template-rows: auto auto auto auto;
-      grid-row-gap: 30px;
-      grid-column-gap: 20px;
-      grid-template-areas:
-        ". . . ."
-        "LOGO LOGO . ."
-        "TITLE TITLE TITLE ."
-        "SUBTITLE SUBTITLE SUBTITLE .";
+    width: 100%;
+    max-width: 1520px;
+    background-color: rgb(23 23 23);
+    display: grid;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    grid-template-rows: 100px auto 20px;
+    grid-template-columns: 20px 1fr 20px;
+    grid-template-areas:
+      ". . ."
+      ". MAIN-AREA ."
+      ". . .";
   }
 
+
+  #PFBD_INTRO {
+    display: grid;
+    grid-area: MAIN-AREA;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto auto;
+    grid-row-gap: 30px;
+    grid-column-gap: 20px;
+    grid-template-areas:
+      ". . . ."
+      "LOGO LOGO . ."
+      "TITLE TITLE TITLE ."
+      "SUBTITLE SUBTITLE SUBTITLE .";
   }
+
+}
 
 
 
@@ -352,28 +354,29 @@
 @media all and (min-width: 480px) and (max-width: 960px) {
 
   .grid_0_product {
-      position: relative;
-      width: 100%;
-      background-color: rgb(23 23 23);
-      display: grid;
-      padding-left: 20px;
-      padding-right: 20px;
-      grid-row-gap: 20px;
-      grid-template-rows: 0px auto;
-      grid-template-columns: 1fr;
-      grid-template-areas:
-        "  .  "
-        " MAIN-AREA ";
-      margin-bottom: 0px;
-    }
+    position: relative;
+    width: 100%;
+    background-color: rgb(23 23 23);
+    display: grid;
+    padding-left: 20px;
+    padding-right: 20px;
+    grid-row-gap: 20px;
+    grid-template-rows: 0px auto;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "  .  "
+      " MAIN-AREA ";
+    margin-bottom: 0px;
+  }
 
-    .grid {
-      grid-template-columns: repeat(2, 1fr);
-      grid-area: MAIN-AREA;
-    }
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-area: MAIN-AREA;
+  }
 
-    .cardLarge {
-      grid-column: span 2; }
+  .cardLarge {
+    grid-column: span 2;
+  }
 
 }
 
@@ -387,34 +390,31 @@
 @media all and (min-width: 0px) and (max-width: 480px) {
 
   .grid_0_product {
-      position: relative;
-      width: 100%;
-      background-color: rgb(23 23 23);
-      display: grid;
-      padding-left: 20px;
-      padding-right: 20px;
-      grid-row-gap: 20px;
-      grid-template-rows: 0px auto;
-      grid-template-columns: 1fr;
-      grid-template-areas:
-        "  .  "
-        " MAIN-AREA ";
-      margin-bottom: 0px;
-    }
+    position: relative;
+    width: 100%;
+    background-color: rgb(23 23 23);
+    display: grid;
+    padding-left: 20px;
+    padding-right: 20px;
+    grid-row-gap: 20px;
+    grid-template-rows: 0px auto;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "  .  "
+      " MAIN-AREA ";
+    margin-bottom: 0px;
+  }
 
 
-    .grid {
-      grid-template-columns: repeat(2, 1fr);
-      grid-area: MAIN-AREA;
-    }
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-area: MAIN-AREA;
+  }
 
-    .cardLarge {
-      grid-column: span 2;
-    }
+  .cardLarge {
+    grid-column: span 2;
+  }
 }
-
-
-
 
 
 
