@@ -330,20 +330,18 @@
     #PFBD_INTRO {
       display: grid;
       grid-area: MAIN-AREA;
-      grid-template-columns: 1fr ;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
       grid-template-rows: auto auto auto auto;
       grid-row-gap: 30px;
       grid-column-gap: 20px;
       grid-template-areas:
-        " ."
-        " LOGO"
-        " TITLE "
-        "SUBTITLE ";
-    }
+        ". . . ."
+        "LOGO LOGO . ."
+        "TITLE TITLE TITLE ."
+        "SUBTITLE SUBTITLE SUBTITLE .";
+  }
 
-}
-
-
+  }
 
 
 
