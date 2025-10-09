@@ -49,7 +49,7 @@ export default class Footer extends Component {
                                 <div >
                                     <Link href= "/">
                                         <h4 id={styles._H4}  class="text-2xl ... text-slate-100 ... font-avant_garde_medium">
-                                            <a class="text-yellow-200 font-avant_garde_bold"><Link href="/">info@bimcopilot.com</Link>
+                                            <a class="text-yellow-200 font-avant_garde_bold"><Link href="/">info@plasticfreebydesign.com</Link>
                                             </a>
                                         </h4> 
                                     </Link>
@@ -67,7 +67,7 @@ export default class Footer extends Component {
                                     </a>. Made with love, with a gun to our head.</h4>
                             </div>
                             <div id={styles.COMPANY}>
-                                <h4 id={styles._H4}  class="text-stone-400 ... font-avant_garde_medium text-sm ..."><a class= "text-amber-200 ... font-avant_garde_bold"><Link href="/">bimcopilot.com</Link></a> _ a subsidiary of Plastic Free By Design Ltd</h4>
+                                <h4 id={styles._H4}  class="text-stone-400 ... font-avant_garde_medium text-sm ..."><a class= "text-amber-200 ... font-avant_garde_bold"><Link href="/">plasticfreebydesign.com</Link></a> _ a subsidiary of Plastic Free By Design Ltd</h4>
                             </div>
 
 

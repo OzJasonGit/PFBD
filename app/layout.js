@@ -79,8 +79,8 @@ const calisga_regular = localFont
 });
 
 export const metadata = {
-  title: "bimcopilot.com",
-  description: "Sustainable, Richer Architects through BIM, AI, Analytics and Automation",
+  title: "Plastic Free By Design",
+  description: "The highest quality organic, sustainably sourced, halal wholefoods",
 };
 
 export default function RootLayout({ children }) {

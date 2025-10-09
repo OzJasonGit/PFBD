@@ -1,16 +1,18 @@
 "use client";
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
+
+import dynamic from 'next/dynamic';
+import SkeletonLoader from "@/components/Loader/loader";
+
+const PFBD = dynamic(
+  () => import("@/Modules/Plastic_Free_By_Design/plastic_freee_by_design"),
+  { 
+    loading: () => <SkeletonLoader />,
+    ssr: false
+  }
+);
 
 const Home = () => {
-  const router = useRouter();
-
-  useEffect(() => {
-    // Redirect to the main landing page
-    router.push("/plastic_free_by_design");
-  }, [router]);
-
-  return null;
+  return <PFBD />;
 };
 
 export default Home;

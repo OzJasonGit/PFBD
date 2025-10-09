@@ -201,7 +201,7 @@ const Menu_White = () => {
                       </a>. Made with love, with a gun to our head.
                       </h4>
                       <br/>
-                      <h4 id={styles._H4}  class="text-stone-700 ... font-avant_garde_bold text-xs ... text-left"><a class= "text-emerald-400 ... font-avant_garde_bold"><Link href="/">bimcopilot.com</Link></a> 
+                      <h4 id={styles._H4}  class="text-stone-700 ... font-avant_garde_bold text-xs ... text-left"><a class= "text-emerald-400 ... font-avant_garde_bold"><Link href="/">plasticfreebydesign.com</Link></a> 
                           _ a subsidiary of <a class= "font-avant_garde_bold  text-stone-400 ...">Plastic Free By Design Ltd</a>
                       </h4>
                       <br/>
