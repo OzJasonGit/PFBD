@@ -1,18 +1,17 @@
 "use client";
 
-import dynamic from 'next/dynamic';
-import SkeletonLoader from "@/components/Loader/loader";
-
-const PFBD = dynamic(
-  () => import("@/Modules/Plastic_Free_By_Design/plastic_freee_by_design"),
-  { 
-    loading: () => <SkeletonLoader />,
-    ssr: false
-  }
-);
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 const PFBDPage = () => {
-  return <PFBD />;
+  const router = useRouter();
+
+  useEffect(() => {
+    // Redirect to the homepage
+    router.push("/");
+  }, [router]);
+
+  return null;
 };
 
 export default PFBDPage;

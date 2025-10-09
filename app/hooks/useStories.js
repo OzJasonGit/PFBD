@@ -4,7 +4,7 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 
 export function useStories() {
   const { data, error, isLoading } = useSWR(
-    'https://www.bimcopilot.com/api',
+    'https://www.plasticfreebydesign.com/api',
     fetcher,
     {
       revalidateOnFocus: false,
@@ -24,7 +24,7 @@ export function useStories() {
 
 export function useBlogHomeStories() {
   const { data, error, isLoading } = useSWR(
-    'https://www.bimcopilot.com/api/bloghome_route',
+    'https://www.plasticfreebydesign.com/api/bloghome_route',
     fetcher,
     {
       revalidateOnFocus: false,

@@ -333,7 +333,7 @@ const { addToCart } = useContext(CartContext);
                   <h3 id={styles._H3} 
                       className=" text-stone-700 font-avant_garde_medium" style={{ marginBottom: '0px' }}>
                       For Educational Use (Reduced price) please send us an email with your student card and info to{' '}
-                    <a href="mailto:info@bimcopilot.com">info@bimcopilot.com</a>
+                    <a href="mailto:info@plasticfreebydesign.com">info@plasticfreebydesign.com</a>
                   </h3>
                 </div>
 
@@ -348,7 +348,7 @@ const { addToCart } = useContext(CartContext);
                   </h3>
                   <h3 id={styles._H3} 
                       className=" text-stone-700 font-avant_garde_bold">
-                    Created By: <a className="text-stone-700 font-avant_garde_medium">Bimcopilot.com</a>
+                    Created By: <a className="text-stone-700 font-avant_garde_medium">plasticfreebydesign.com</a>
                   </h3>
                   <h3 id={styles._H3} 
                       className=" text-stone-700 font-avant_garde_bold">

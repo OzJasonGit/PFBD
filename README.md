@@ -4,7 +4,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 First, run the development server:
 
-```bash
+```bash 
 npm run dev
 # or
 yarn dev
@@ -14,7 +14,7 @@ pnpm dev
 bun dev
 ```
 
-Open [https://www.bimcopilot.com](https://www.bimcopilot.com) with your browser to see the result.
+Open [https://www.plasticfreebydesign.com](https://www.plasticfreebydesign.com) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 

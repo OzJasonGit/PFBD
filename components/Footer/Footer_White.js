@@ -54,7 +54,7 @@ export default class Footer extends Component {
                                     </h4>                                    
                                     <Link href= "/">
                                         <h4 id={styles._H4}  class="text-sm ... text-stone-100 ... font-avant_garde_medium text-right">
-                                            <a class="text-emerald-400 font-avant_garde_bold"><Link href="/">info@bimcopilot.com</Link>
+                                            <a class="text-emerald-400 font-avant_garde_bold"><Link href="/">info@plasticfreebydesign.com</Link>
                                             </a>
                                         </h4> 
                                     </Link>                             
@@ -85,7 +85,7 @@ export default class Footer extends Component {
                                     </a>. Made with love, with a gun to our head.
                                     </h4>
                                     <br/>
-                                    <h4 id={styles._H4}  class="text-stone-500 ... font-avant_garde_medium text-xs ... text-right"><a class= "text-emerald-500 ... font-avant_garde_bold"><Link href="/">bimcopilot.com</Link></a> 
+                                    <h4 id={styles._H4}  class="text-stone-500 ... font-avant_garde_medium text-xs ... text-right"><a class= "text-emerald-500 ... font-avant_garde_bold"><Link href="/">plasticfreebydesign.com</Link></a> 
                                         _ a subsidiary of <a class= "font-avant_garde_bold  text-stone-700 ...">Plastic Free By Design Ltd</a>
                                     </h4>
                                     <br/>
@@ -200,7 +200,7 @@ export default class Footer extends Component {
                             </a>. Made with love, with a gun to our head.
                             </h4>
                             <br/>
-                            <h4 id={styles._H4}  class="text-stone-500 ... font-avant_garde_bold text-xs ... text-right"><a class= "text-emerald-200 ... font-avant_garde_bold"><Link href="/">bimcopilot.com</Link></a> 
+                            <h4 id={styles._H4}  class="text-stone-500 ... font-avant_garde_bold text-xs ... text-right"><a class= "text-emerald-200 ... font-avant_garde_bold"><Link href="/">plasticfreebydesign.com</Link></a> 
                                 _ a subsidiary of <a class= "font-avant_garde_bold  text-stone-700 ...">Plastic Free By Design Ltd</a>
                             </h4>
                             <br/>
