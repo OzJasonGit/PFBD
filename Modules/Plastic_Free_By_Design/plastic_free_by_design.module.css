@@ -335,11 +335,11 @@
       grid-row-gap: 30px;
       grid-column-gap: 20px;
       grid-template-areas:
-          ". . . ."
-          "LOGO LOGO . ."
-          "TITLE TITLE TITLE ."
-          "SUBTITLE SUBTITLE SUBTITLE .";
-    }
+        ". . . ."
+        "LOGO LOGO . ."
+        "TITLE TITLE TITLE ."
+        "SUBTITLE SUBTITLE SUBTITLE .";
+  }
 
   }
 
