@@ -135,7 +135,7 @@ const PFBD = () => {
                     position:'relative',
                     overflow:'hidden',
                     borderRadius:'4rem',
-                    top:'-80px'
+                    /*top:'-80px'*/
                   }}>
                     <video
                       className="absolute top-0 left-0 w-full h-full object-cover"
@@ -154,7 +154,7 @@ const PFBD = () => {
          </div>
       </section>
 
-      <SubscribePFBD />
+      {/*<SubscribePFBD />*/}
 
       {loading ? (
         <div className={styles.loader}>
