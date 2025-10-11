@@ -362,6 +362,10 @@
 
 
 
+  
+
+
+
   .grid_0_product {
     position: relative;
     width: 100%;
@@ -371,11 +375,11 @@
     grid-column-gap: 0;
     grid-row-gap: 20px;
     grid-template-rows: 0 auto 0;
-    grid-template-columns: 20px 120px 20px 1fr 20px 120px 20px;
+    grid-template-columns: 30px 1fr 40px;
     grid-template-areas:
-      ". . . . . . ."
-      ". . . MAIN-AREA . . ."
-      ". . . . . . .";
+      ". . ."
+      ". MAIN-AREA ."
+      ". . .";
     z-index: 100;
   }
 
@@ -413,21 +417,23 @@
   }
 
 
-  #PFBD_INTRO {
-    display: grid;
-    grid-area: MAIN-AREA;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 100px;
-    grid-template-rows: auto auto auto auto;
-    grid-row-gap: 30px;
-    grid-column-gap: 20px;
-    grid-template-areas:
-      ". . . . . . ."
-      ". . . . LOGO LOGO LOGO"
-      "TITLE TITLE TITLE TITLE TITLE . ."
-      "SUBTITLE SUBTITLE SUBTITLE SUBTITLE . . .";
-    position: relative;
-    right: -15px;
-  }
+  
+
+    #PFBD_INTRO {
+      display: grid;
+      grid-area: MAIN-AREA;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 100px;
+      grid-template-rows: auto auto auto auto;
+      grid-row-gap: 30px;
+      grid-column-gap: 20px;
+      grid-template-areas:
+        ". . . . . . ."
+        "LOGO LOGO LOGO . . . ."
+        "TITLE TITLE TITLE TITLE TITLE . ."
+        "SUBTITLE SUBTITLE SUBTITLE SUBTITLE . . .";
+      position: relative;
+      right: -15px;
+    }
 
 
 
