@@ -135,6 +135,7 @@ const PFBD = () => {
                     position:'relative',
                     overflow:'hidden',
                     borderRadius:'4rem',
+                    marginTop:'40px'
                     /*top:'-80px'*/
                   }}>
                     <video
