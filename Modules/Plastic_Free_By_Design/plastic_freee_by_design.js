@@ -11,6 +11,7 @@ import React from 'react';
 import PFDBMenu from '../../components/Menu_PFBD/menu_PFBD';
 import Sides_PFBD from '../../components/Sides_PFBD/sides_PFBD';
 import Header from '../../components/Header/Header';
+import Header_PFBD from '../../components/Header_PFBD/Header_PFBD';
 import Subfooter from '../../components/Subfooter2/subfooter2';
 import Footer from '../../components/Footer/Footer';
 import SubscribePFBD from '../../components/Subscribe_PFBD/subscribePFBD';
@@ -69,7 +70,7 @@ const PFBD = () => {
   return (
     <>
       <PFDBMenu />
-      <Header />
+      <Header_PFBD />
       <Sides_PFBD />
       {/* Static background */}
       <VHSGrain />
