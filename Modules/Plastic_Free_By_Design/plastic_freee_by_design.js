@@ -155,7 +155,7 @@ const PFBD = () => {
          </div>
       </section>
 
-      {/*<SubscribePFBD />*/}
+      <SubscribePFBD />
 
       {loading ? (
         <div className={styles.loader}>
