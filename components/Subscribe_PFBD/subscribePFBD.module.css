@@ -166,6 +166,19 @@
 @media all and (min-width: 960px) and (max-width: 1280px) {
   
 
+.center_holder {
+    position: relative;
+    width: 100%;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    background-color: aliceblue;
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+
+
 
 
   #SHADOW_SECTION_PFBD {
@@ -179,24 +192,24 @@
     top: 0px;
     left: 0;
     overflow-x: hidden;
-    /*margin-top: -550px;*/
+    margin-top: -380px;
   }
 
   /*SECTION_1///////////////////////////////////////////////////////////////////////////////////////////*/
   .grid_0_subscribe {
     position: relative;
     width: 100%;
-    max-width: 1520px;
+    max-width: 1920px;
     background-color: transparent;
     display: grid;
     grid-column-gap: 0px;
     grid-row-gap: 20px;
-    grid-template-rows: 20px auto 20px;
-    grid-template-columns: 40px 120px 1fr 120px 40px;
+    grid-template-rows: 0px auto 0px;
+    grid-template-columns: 20px 120px 20px 1fr 20px 120px 20px;
     grid-template-areas:
-      ". . . . ."
-      ". SUB SUB SUB ."
-      ". . . . .";
+      ". . . . . . ."
+      ". . . SUB . . ."
+      ". . . . . . .";
   }
 
   .sub_head {
@@ -211,6 +224,36 @@
     grid-template-areas: "BC BC BC BC . . . . . . . . . .";
     left: 0;
   }
+
+  #SUBSCRIBE {
+    position: relative;
+    grid-area: BC;
+    width: 100%;
+    display: grid;
+    grid-row-gap: 10px;
+    grid-column-gap: 20px;
+    grid-template-columns: 1fr 180px;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      "TAG_MAIN TAG_MAIN"
+      "SUB_MAIN SUB_MAIN"
+      "FORM FORM";
+    /*top: -30px;*/
+  }
+
+  #SUB_ICON {
+    grid-area: ICON;
+  }
+
+  #MAIN_TAG {
+    grid-area: TAG_MAIN;
+  }
+
+  #SUB_TAG {
+    grid-area: SUB_MAIN;
+  }
+
+  /*SECTION_1///////////////////////////////////////////////////////////////////////////////////////////*/
 }
 
 /*SECTION_11////ASTRONAUT///////////////////////////////////////////////////////////////////////////////*/
