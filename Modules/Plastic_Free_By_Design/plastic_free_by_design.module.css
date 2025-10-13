@@ -594,149 +594,147 @@
 
 @media all and (min-width: 480px) and (max-width: 960px) {
 
-.container {
-    padding: 60px 20px;
-    background: #181818;
-    display: flex;
-    justify-content: center;
-  }
-
-
-  .center_holder {
-    position: relative;
-    width: 100%;
-    display: flex;
-    -webkit-box-pack: center;
-    justify-content: center;
-    background-color: rgb(23, 23, 23);
-    margin: 0;
-    padding: 0px 0;
-  }
-
-
-  .center_holder_2 {
-    position: relative;
-    width: 100%;
-    display: flex;
-    -webkit-box-pack: center;
-    justify-content: center;
-    background-color: rgb(23, 23, 23);
-    margin: 0;
-    padding: 200px 0;
-  }
-
-
-  #SHADOW_SECTION {
-    position: relative;
-    width: 100%;
-    display: flex;
-    -webkit-box-pack: center;
-    justify-content: center;
-    background-color: rgb(23, 23, 23);
-    z-index: 1;
-    top: 0px;
-    left: 0;
-  }
-
-
-
-
-.grid_0_product {
-  position: relative;
-  width: 100%;
-  background-color: #171717;
-  display: grid;
-  padding-left: 40px;
-  padding-right: 40px;
-  grid-row-gap: 20px;
-  grid-template-rows: 0 auto;
-  grid-template-columns: 1fr;
-  grid-template-areas:
-    " . "
-    " MAIN-AREA ";
-  margin-bottom: 0;
-}
-
-
-
-}
+  .container {
+      padding: 60px 20px;
+      background: #181818;
+      display: flex;
+      justify-content: center;
+    }
+  
+  
+    .center_holder {
+      position: relative;
+      width: 100%;
+      display: flex;
+      -webkit-box-pack: center;
+      justify-content: center;
+      background-color: rgb(23, 23, 23);
+      margin: 0;
+      padding: 0px 0;
+    }
+  
+  
+    .center_holder_2 {
+      position: relative;
+      width: 100%;
+      display: flex;
+      -webkit-box-pack: center;
+      justify-content: center;
+      background-color: rgb(23, 23, 23);
+      margin: 0;
+      padding: 200px 0;
+    }
+  
+  
+    #SHADOW_SECTION {
+      position: relative;
+      width: 100%;
+      display: flex;
+      -webkit-box-pack: center;
+      justify-content: center;
+      background-color: rgb(23, 23, 23);
+      z-index: 1;
+      top: 0px;
+      left: 0;
+    }
+  
+  
+  
+  
+    .grid_0_product {
+      position: relative;
+      width: 100%;
+      background-color: #171717;
+      display: grid;
+      padding-left: 40px;
+      padding-right: 40px;
+      grid-row-gap: 20px;
+      grid-template-rows: 0 auto;
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        " . "
+        " MAIN-AREA ";
+      margin-bottom: 0;
+    }
 
 
 
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-    width: 100%;
-    grid-area: MAIN-AREA;
-    position: relative;
-    grid-column-gap: 40px;
-    grid-row-gap: 40px;
-    grid-template-rows: auto;
-  }
+
+
+ .grid {
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   gap: 40px;
+   width: 100%;
+   grid-area: MAIN-AREA;
+   position: relative;
+   grid-column-gap: 40px;
+   grid-row-gap: 40px;
+   grid-template-rows: auto;
+ }
 
 
 
 
 
 
-  #PRODUCT_OVERLAY_GRID {
-    display: grid;
-    grid-template-columns: 20px 30px 80px 1fr 80px 30px 20px;
-    grid-template-rows: 20px 30px 80px auto 80px 30px 20px;
-    grid-template-areas:
-      ". . . . . . ."
-      ". TEXT TEXT . . . ."
-      ". . . . . . ."
-      ". TITLE TITLE TITLE TITLE TITLE ."
-      ". . . . . . ."
-      ". . . . . LOGO ."
-      ". . . . . . .";
-  }
+ #PRODUCT_OVERLAY_GRID {
+   display: grid;
+   grid-template-columns: 20px 30px 80px 1fr 80px 30px 20px;
+   grid-template-rows: 20px 30px 80px auto 80px 30px 20px;
+   grid-template-areas:
+     ". . . . . . ."
+     ". TEXT TEXT . . . ."
+     ". . . . . . ."
+     ". TITLE TITLE TITLE TITLE TITLE ."
+     ". . . . . . ."
+     ". . . . . LOGO ."
+     ". . . . . . .";
+ }
 
 
 
 
-  #PFBD_INTRO {
-    display: grid;
-    grid-area: MAIN-AREA;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 100px;
-    grid-template-rows: auto auto auto auto;
-    grid-row-gap: 30px;
-    grid-column-gap: 20px;
-    grid-template-areas:
-      ". . . . . . ."
-      "LOGO LOGO LOGO . . . ."
-      "TITLE TITLE TITLE TITLE TITLE . ."
-      "SUBTITLE SUBTITLE SUBTITLE SUBTITLE . . .";
-    position: relative;
-    right: -15px;
-  }
+ #PFBD_INTRO {
+   display: grid;
+   grid-area: MAIN-AREA;
+   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 100px;
+   grid-template-rows: auto auto auto auto;
+   grid-row-gap: 30px;
+   grid-column-gap: 20px;
+   grid-template-areas:
+     ". . . . . . ."
+     "LOGO LOGO LOGO . . . ."
+     "TITLE TITLE TITLE TITLE TITLE . ."
+     "SUBTITLE SUBTITLE SUBTITLE SUBTITLE . . .";
+   position: relative;
+   right: -15px;
+ }
 
 
 
 
 
-  #PFBD_VIDEO {
-    display: grid;
-    grid-area: MAIN-AREA;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 100px;
-    grid-template-rows: auto;
-    grid-row-gap: 30px;
-    grid-column-gap: 20px;
-    grid-template-areas: ". . . . VIDEO VIDEO VIDEO VIDEO VIDEO";
-  }
+ #PFBD_VIDEO {
+   display: grid;
+   grid-area: MAIN-AREA;
+   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 100px;
+   grid-template-rows: auto;
+   grid-row-gap: 30px;
+   grid-column-gap: 20px;
+   grid-template-areas: ". . . . VIDEO VIDEO VIDEO VIDEO VIDEO";
+ }
 
 
-  #ROW_1 {
-    width: auto;
-    height: auto;
-  }
+ #ROW_1 {
+   width: auto;
+   height: auto;
+ }
 
-  #ROW_2 {
-    width: auto;
-    height: auto;
-  }
+ #ROW_2 {
+   width: auto;
+   height: auto;
+ }
 
 
 
@@ -832,6 +830,20 @@
   .cardLarge {
     grid-column: span 2;
   }
+  
+  
+  
+  }
+  
+  
+  
+ 
+
+
+
+
+
+
 
 
 
