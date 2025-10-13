@@ -85,7 +85,7 @@ const PFBD = () => {
             <div  id={styles.LOGO}
                   style={{
                   gridArea: 'LOGO',
-                  left: '-10px',
+               
                   
                 }}>
                 <Image
