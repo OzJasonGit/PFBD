@@ -325,15 +325,11 @@
   /*SECTION_1///////////////////////////////////////////////////////////////////////////////////////////*/
 
 
-
-  
-
-
   .grid_0_subscribe {
     position: relative;
     width: 100%;
     max-width: 1520px;
-    background-color: transparent;
+    background-color: #171717;
     display: grid;
     grid-column-gap: 0;
     grid-row-gap: 20px;
