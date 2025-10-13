@@ -1114,8 +1114,6 @@
     }
 
 
-<<<<<<< HEAD
-=======
 
   .grid {
     grid-template-columns: repeat(1, 1fr);
@@ -1125,11 +1123,7 @@
   .cardLarge {
     grid-column: span 1;
   }
->>>>>>> 5efc398504414a5780b40246c4579acfff6e2609
 }
-
-
-
 
 
 
