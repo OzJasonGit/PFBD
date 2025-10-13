@@ -713,16 +713,17 @@
 
 
 
+    }
 
 
     #PFBD_VIDEO {
       display: grid;
       grid-area: MAIN-AREA;
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 100px;
+      grid-template-columns: 1fr;
       grid-template-rows: auto;
       grid-row-gap: 30px;
       grid-column-gap: 20px;
-      grid-template-areas: ". . . . VIDEO VIDEO VIDEO VIDEO VIDEO";
+      grid-template-areas: " VIDEO";
     }
 
 
