@@ -97,7 +97,7 @@ const Products = () => {
 
 
                         <Link href={`/products/${product.slug}`}
-                              className="group overflow-hidden rounded-2xl cursor-pointer transition-all duration-500 shadow-none hover:shadow-xl"
+                              className="group overflow-hidden cursor-pointer transition-all duration-500 shadow-none hover:shadow-xl"
                               style={{ position: "relative", width: "100%", height: "auto" }}>
 
                           <div id={styles.imageWrapper} className=" transition-transform duration-500 ease-in-out transform-gpu origin-center scale-110 group-hover:scale-100 ">
@@ -145,7 +145,7 @@ const Products = () => {
                           <>
                             <div id={styles.ROW_2}  key={group[3].id} className={styles.card}>
                               <Link href={`/products/${group[3].slug}`}
-                                    className="group overflow-hidden rounded-2xl cursor-pointer transition-all duration-500 shadow-none hover:shadow-xl"
+                                    className="group overflow-hidden  cursor-pointer transition-all duration-500 shadow-none hover:shadow-xl"
                                     style={{ position: "relative", width: "100%", height: "auto" }}>
 
                                 <div id={styles.imageWrapper} className=" transition-transform duration-500 ease-in-out transform-gpu origin-center scale-110 group-hover:scale-100 ">
@@ -183,7 +183,7 @@ const Products = () => {
 
                             <div key={group[4].id} className={`${styles.card} ${styles.cardLarge} ${styles.cardRight}`}>
                               <Link href={`/products/${group[4].slug}`}
-                                    className="group overflow-hidden rounded-2xl cursor-pointer transition-all duration-500 shadow-none hover:shadow-xl"
+                                    className="group overflow-hidden  cursor-pointer transition-all duration-500 shadow-none hover:shadow-xl"
                                     style={{ position: "relative", width: "100%", height: "auto" }}>
 
                                 <div id={styles.imageWrapper} className=" transition-transform duration-500 ease-in-out transform-gpu origin-center scale-110 group-hover:scale-100 ">
@@ -243,7 +243,7 @@ const Products = () => {
                           <>
                             <div key={group[4].id} className={`${styles.card} ${styles.cardLarge} ${styles.cardLeft}`}>
                               <Link href={`/products/${group[4].slug}`}
-                                    className="group overflow-hidden rounded-2xl cursor-pointer transition-all duration-500 shadow-none hover:shadow-xl"
+                                    className="group overflow-hidden  cursor-pointer transition-all duration-500 shadow-none hover:shadow-xl"
                                     style={{ position: "relative", width: "100%", height: "auto" }}>
 
                                 <div id={styles.imageWrapper} className="transition-transform duration-500 ease-in-out transform-gpu origin-center scale-110 group-hover:scale-100 ">
@@ -287,7 +287,7 @@ const Products = () => {
 
                             <div key={group[3].id} className={styles.card}>
                               <Link href={`/products/${group[3].slug}`}
-                                  className="group overflow-hidden rounded-2xl cursor-pointer transition-all duration-500 shadow-none hover:shadow-xl"
+                                  className="group overflow-hidden  cursor-pointer transition-all duration-500 shadow-none hover:shadow-xl"
                                   style={{ position: "relative", width: "100%", height: "auto" }}>
 
                                   {/* Image wrapper */}
