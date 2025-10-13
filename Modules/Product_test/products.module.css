@@ -152,15 +152,42 @@
   position: relative;
   width: 100%;
   aspect-ratio: 1 / 1;
+  border-radius: 0px !important;
 }
 
 .cardLarge .imageWrapper {
   aspect-ratio: 2 / 1.4; /* wide and tall */
+  border-radius: 0px !important;
 }
 
 .image {
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 0px !important;
+}
+
+/* Override any potential Tailwind or global styles */
+.image {
+  border-radius: 0px !important;
+}
+
+/* Override any Tailwind classes that might be applied */
+.group {
+  border-radius: 0px !important;
+}
+
+/* Override any potential card or container styles */
+.card {
+  border-radius: 0px !important;
+}
+
+/* Override any Link element styles - using more specific selector */
+.group {
+  border-radius: 0px !important;
+}
+
+/* But keep the spinner circular */
+.spinner {
+  border-radius: 50% !important;
 }
 
 /* Text section under the image */
@@ -264,12 +291,12 @@
     }
 
     .grid {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(1, 1fr);
       grid-area: MAIN-AREA;
     }
 
     .cardLarge {
-      grid-column: span 2; }
+      grid-column: span 1; }
 
 }
 
@@ -300,12 +327,12 @@
 
 
     .grid {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(1, 1fr);
       grid-area: MAIN-AREA;
     }
 
     .cardLarge {
-      grid-column: span 2;
+      grid-column: span 1;
     }
 }
 

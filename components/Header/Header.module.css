@@ -958,7 +958,7 @@
 @media all and (min-width: 0px) and (max-width: 480px) {
   .center_holder {
     width: 100%;
-    display: none;
+    display: flex;
     -webkit-box-pack: center;
     justify-content: center;
     background-color: rgb(245 245 244);
