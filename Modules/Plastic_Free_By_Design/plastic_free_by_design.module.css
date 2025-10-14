@@ -694,7 +694,7 @@
   
 
 
-  .PFBD_INTRO {
+  #PFBD_INTRO {
     display: grid;
     grid-area: MAIN-AREA;
     grid-template-columns: 1fr 100px 1fr;
@@ -708,6 +708,9 @@
       "SUBTITLE SUBTITLE SUBTITLE";
     position: relative;
   }
+
+
+
 
 
 
@@ -838,19 +841,6 @@
 .cardLarge {
   grid-column: span 1;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
