@@ -302,7 +302,7 @@
     grid-column-gap: 0;
     grid-row-gap: 20px;
     grid-template-rows: 50px auto 20px;
-    grid-template-columns: 40px 120px 1fr 120px 220px;
+    grid-template-columns: 40px 120px 1fr 120px 120px;
     grid-template-areas:
       ". . . . ."
       ". SUB SUB SUB ."
