@@ -266,6 +266,11 @@
 }
 
 
+#TITLE {
+  margin-top: -80px;
+}
+
+
 
 
 
@@ -542,6 +547,10 @@
     to {
       transform: rotate(360deg);
     }
+  }
+
+  #TITLE {
+    margin-top: -80px;
   }
 
 }
@@ -886,11 +895,12 @@
 
 
 
-  #H1_LARGE {
+  #_H1_LARGE {
     margin-bottom: 0;
     font-size: 5rem;
     line-height: 4.5rem;
   }
+
 
   .container {
       padding: 60px 20px;
