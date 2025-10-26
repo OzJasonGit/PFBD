@@ -117,7 +117,7 @@ const PFBD = () => {
                   gridArea: 'SUBTITLE',
                   height:'auto',
                   position:'relative',
-                  paddingTop:'20px'
+                
                 }}>
                   <h2 id={styles._H2} className='text-stone-50 font-avant_garde_bold'>The highest quality organic, sustainably <br/> sourced, halal wholefoods </h2>
             </div>

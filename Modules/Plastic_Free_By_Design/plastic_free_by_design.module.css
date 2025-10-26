@@ -275,6 +275,9 @@
   margin-top: -80px;
 }
 
+#SUBTITLE{
+  padding-top: 20px;
+}
 
 
 
@@ -561,6 +564,11 @@
 
   #TITLE {
     margin-top: -80px;
+  }
+
+
+  #SUBTITLE {
+    padding-top: 20px;
   }
 
 }
@@ -871,6 +879,10 @@
 #TITLE {
   margin-top: -20px;
 }
+
+ #SUBTITLE {
+   padding-top: 0px;
+ }
 
 
 }
@@ -1183,6 +1195,10 @@
   #TITLE {
     margin-top: -20px;
   }
+
+ #SUBTITLE {
+   padding-top: 0px;
+ }
 }
 
 
