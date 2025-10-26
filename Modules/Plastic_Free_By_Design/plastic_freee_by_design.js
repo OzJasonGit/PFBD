@@ -135,7 +135,6 @@ const PFBD = () => {
                     width:'100%',
                     position:'relative',
                     overflow:'hidden',
-                    borderRadius:'4rem',
                     marginTop:'40px'
                     /*top:'-80px'*/
                   }}>
