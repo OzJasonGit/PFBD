@@ -399,7 +399,9 @@
 
 @media all and (min-width: 0px) and (max-width: 480px) {
   /*FONTS/////////////////////////////////////////////////////////////////////////////////////////////////*/
-    .grid_0_subscribe {
+
+
+      .grid_0_subscribe {
         position: relative;
         width: 100%;
         max-width: 1520px;
@@ -408,11 +410,11 @@
         grid-column-gap: 0;
         grid-row-gap: 20px;
         grid-template-rows: 50px auto 20px;
-        grid-template-columns: 40px 120px 1fr 120px 220px;
+        grid-template-columns: 20px 1fr 20px;
         grid-template-areas:
-          ". . . . ."
-          ". SUB SUB SUB ."
-          ". . . . .";
+          ". . ."
+          ". SUB ."
+          ". . .";
       }
     
       .sub_head {

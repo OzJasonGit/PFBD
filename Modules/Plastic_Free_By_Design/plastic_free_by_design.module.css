@@ -171,6 +171,11 @@
 }
 
 
+
+#PFBD_VIDEO_CONTAINER{
+  height: 500px;
+}
+
 #ROW_1 {
   width: auto;
   height: auto;
@@ -455,6 +460,11 @@
   }
 
 
+  #PFBD_VIDEO_CONTAINER {
+    height: 500px;
+  }
+
+
   #ROW_1 {
     width: auto;
     height: auto;
@@ -718,6 +728,10 @@
     position: relative;
   }
 
+
+  #PFBD_VIDEO_CONTAINER {
+    height: 400px;
+  }
 
 
 
@@ -1035,6 +1049,11 @@
       grid-row-gap: 30px;
       grid-column-gap: 20px;
       grid-template-areas: " VIDEO";
+    }
+
+
+    #PFBD_VIDEO_CONTAINER {
+      height: 400px;
     }
   
   
