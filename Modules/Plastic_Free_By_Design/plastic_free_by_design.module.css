@@ -1045,7 +1045,7 @@
 
 
 
-    #PFBD_INTRO {
+    /*#PFBD_INTRO {
       display: grid;
       grid-area: MAIN-AREA;
       grid-template-columns: 1fr;
@@ -1057,6 +1057,22 @@
         "LOGO"
         "TITLE "
         "SUBTITLE ";
+      position: relative;
+    }*/
+
+
+    #PFBD_INTRO {
+      display: grid;
+      grid-area: MAIN-AREA;
+      grid-template-columns: 1fr 100px 1fr;
+      grid-template-rows: auto auto auto auto;
+      grid-row-gap: 30px;
+      grid-column-gap: 20px;
+      grid-template-areas:
+        ". . ."
+        "LOGO LOGO ."
+        "TITLE TITLE TITLE "
+        "SUBTITLE SUBTITLE SUBTITLE ";
       position: relative;
     }
   
