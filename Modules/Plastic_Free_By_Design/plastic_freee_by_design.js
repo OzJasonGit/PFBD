@@ -97,6 +97,8 @@ const PFBD = () => {
                     width: '100%',
                     height: 'auto',
                     objectFit: 'cover',
+                    position: 'relative',
+                    left: '-5px'
                   }}
               />
             </div>
