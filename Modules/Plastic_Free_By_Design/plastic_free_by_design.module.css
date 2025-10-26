@@ -944,8 +944,8 @@
       width: 100%;
       background-color: #171717;
       display: grid;
-      padding-left: 40px;
-      padding-right: 40px;
+      padding-left: 20px;
+      padding-right: 20px;
       grid-row-gap: 20px;
       grid-template-rows: 0 auto;
       grid-template-columns: 1fr;
