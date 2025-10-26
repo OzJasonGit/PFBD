@@ -613,11 +613,13 @@
 
 @media all and (min-width: 480px) and (max-width: 960px) {
 
+
+
 #_H1_LARGE {
-    margin-bottom: 0px;
-    font-size: 8rem;
-    line-height: 7.75rem;
-  }
+  margin-bottom: 0;
+  font-size: 7.5rem;
+  line-height: 6.75rem;
+}
 
 .container {
     padding: 60px 20px;
@@ -865,6 +867,10 @@
   grid-column: span 1;
 }
 
+
+#TITLE {
+  margin-top: -20px;
+}
 
 
 }
@@ -1171,6 +1177,11 @@
 
   .cardLarge {
     grid-column: span 1;
+  }
+
+
+  #TITLE {
+    margin-top: -20px;
   }
 }
 
