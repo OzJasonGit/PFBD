@@ -774,18 +774,17 @@
 
 
 
-
-
-
 .card {
   display: flex;
   flex-direction: column;
 }
 
+
 /* 5th product — span 2 columns and taller */
 .cardLarge {
   grid-column: span 2;
 }
+
 
 /* Featured card positioning */
 .cardRight {
@@ -793,10 +792,12 @@
   /* starts at 2nd column, spans 2 */
 }
 
+
 .cardLeft {
   grid-column: 1 / span 2;
   /* starts at 1st column, spans 2 */
 }
+
 
 /* Image wrapper with fixed ratio */
 #imageWrapper {
@@ -858,6 +859,10 @@
 
 
 
+
+
+
+
 .grid {
   grid-template-columns: repeat(2, 1fr);
   grid-area: MAIN-AREA;
@@ -869,10 +874,7 @@
 
 
 
-.grid {
-  grid-template-columns: repeat(1, 1fr);
-  grid-area: MAIN-AREA;
-}
+
 
 .cardLarge {
   grid-column: span 1;
@@ -1213,7 +1215,7 @@
 
 
   #TITLE {
-    margin-top: -20px;
+    margin-top: -70px;
   }
 
  #SUBTITLE {
