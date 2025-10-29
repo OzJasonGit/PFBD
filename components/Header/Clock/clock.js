@@ -29,15 +29,21 @@ class Clock extends Component {
     const { theme } = this.props;
     const timeString = this.state.time;
     const [timePart, ampm] = timeString.split(' ');
+    const textColor = theme === 'light' ? '#000000' : '#e7e5e4';
     
     return (
       <div id="CLOCK"  
-             class={`text-center font-avant_garde_bold ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}
-             style={{gridArea:"CLOCK", display: "flex", alignItems: "center", gap: "4px"}}>
-        <h3 id={styles._H3} style={{margin: 0, lineHeight: "1"}}>
+             className="text-center font-avant_garde_bold"
+             style={{gridArea:"CLOCK", display: "flex", alignItems: "center", gap: "4px", color: textColor}}>
+        <h3 
+          id={styles._H3}
+          style={{margin: 0, lineHeight: "1", color: textColor}}
+        >
           {timePart}
         </h3>
-        <span style={{fontSize: "0.8em", marginLeft: "2px"}}>
+        <span 
+          style={{fontSize: "0.8em", marginLeft: "2px", color: textColor}}
+        >
           {ampm}
         </span>
       </div>

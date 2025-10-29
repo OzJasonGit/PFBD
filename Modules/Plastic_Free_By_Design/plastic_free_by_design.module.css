@@ -300,16 +300,21 @@
 
 .title {
   font-size: 1.1rem;
-  color: #f2f2f2;
   font-weight: 600;
   margin: 0;
 }
 
 .subtitle {
-  color: #aaa;
   font-size: 0.9rem;
   margin-top: 6px;
 }
+
+/* Theme-aware text colors for product cards */
+:global(.light) .title { color: #000000; }
+:global(.dark) .title { color: #f2f2f2; }
+
+:global(.light) .subtitle { color: #000000; }
+:global(.dark) .subtitle { color: #aaa; }
 
 /* Loading */
 .loader {

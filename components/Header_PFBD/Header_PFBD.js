@@ -149,8 +149,8 @@ export default function Header() {
 
               {/* Time and Date */}
               <div className="content-center ..." id={styles.TIME}>
-                <Clock theme={theme} />
-                <div className={`${theme === 'light' ? 'bg-zinc-300' : 'bg-zinc-500'} ...`} id={styles.B1}></div>
+                <Clock theme={theme } />
+                <div className={`${theme === 'light' ? 'bg-stone-300' : 'bg-stone-500'} ...`} id={styles.B1}></div>
                 <DateComponent theme={theme} />
               </div>
 

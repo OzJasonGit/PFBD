@@ -12,10 +12,16 @@ class DateComponent extends Component {
 
   render() {
     const { theme } = this.props;
+    const textColor = theme === 'light' ? '#000000' : '#f8fafc';
     return (
       <div id={styles.DATE}>
-        <h3 id={styles._H3} class={`text-center font-avant_garde_bold ${theme === 'light' ? 'text-black' : 'text-slate-50'}`}
-        style={{marginBottom:"0px"}}>{this.state.date}</h3>
+        <h3 
+          id={styles._H3} 
+          className="text-center font-avant_garde_bold"
+          style={{marginBottom:"0px", color: textColor}}
+        >
+          {this.state.date}
+        </h3>
       </div>
     );
   }
