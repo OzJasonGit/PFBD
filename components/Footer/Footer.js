@@ -21,8 +21,12 @@ const rocketShip = "https://res.cloudinary.com/dbj8h56jj/image/upload/v175389987
 
 
 export default class Footer extends Component {
+  static defaultProps = {
+    theme: 'dark',
+  };
 
   render() {
+    const theme = this.props.theme;
     return (
       <> 
 
@@ -49,10 +53,10 @@ export default class Footer extends Component {
 
                             <div id={styles.CONTACT}>
                                 <div>                                 
-                                    <h4 id={styles._H4}  class="text-2xl ... text-slate-100 ... font-avant_garde_bold text-right">Contact
+                                    <h4 id={styles._H4}  class={`text-2xl font-avant_garde_bold text-right ${theme === 'light' ? 'text-stone-900' : 'text-slate-100'}`}>Contact
                                     </h4>                                    
                                     <Link href= "/">
-                                        <h4 id={styles._H4}  class="text-sm ... text-slate-100 ... font-avant_garde_medium text-right">
+                                        <h4 id={styles._H4}  class={`text-sm font-avant_garde_medium text-right ${theme === 'light' ? 'text-stone-900' : 'text-slate-100'}`}>
                                             <a class="text-emerald-200 font-avant_garde_bold"><Link href="/">info@plasticfreebydesign.com</Link>
                                             </a>
                                         </h4> 

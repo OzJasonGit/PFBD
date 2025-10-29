@@ -1,11 +1,18 @@
+"use client";
+
 import styles from './subscribePFBD.module.css'
 import React, { Component } from 'react';
+import { useTheme } from '../Context/ThemeContext';
 
 import Subform from "./Client/subform";
 
-export default class Subcribe_PFBD extends Component {
+class SubscribePFBDInner extends Component {
+  static defaultProps = {
+    theme: 'dark',
+  };
 
   render() {
+    const { theme } = this.props;
     return (
 
     <section id={styles.SHADOW_SECTION_PFBD} class={styles.center_holder}>
@@ -18,7 +25,7 @@ export default class Subcribe_PFBD extends Component {
                 <h1
                   id={styles._H2}
                   
-                  class=" text-stone-200 ... font-avant_garde_bold">
+                  class={`font-avant_garde_bold ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}>
                   Sustainable, Richer Architects through AI, Analytics and
                   Automation
                 </h1>
@@ -26,30 +33,30 @@ export default class Subcribe_PFBD extends Component {
               <div id={styles.SUB_TAG}>
                 <h3
                   id={styles._H3}
-                  class="text-left ... text-stone-400 ... font-geistmono_regular"
+                  class={`text-left font-geistmono_regular ${theme === 'light' ? 'text-black' : 'text-stone-400'}`}
                 >
                   {" "}
-                  <a class="text-stone-200 ... font-geistmono_regular">
+                  <a class={`font-geistmono_regular ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}>
                     The design revolution is here.
                   </a>{" "}
                   The world is changing and so is{" "}
-                  <a class="text-stone-200 ... font-geistmono_regular">
+                  <a class={`font-geistmono_regular ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}>
                     architecture
                   </a>
                   . Discover new narratives, build better{" "}
-                  <a class="text-stone-200 ... font-geistmono_regular">
+                  <a class={`font-geistmono_regular ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}>
                     systems
                   </a>
                   , make more{" "}
-                  <a class="text-stone-200 ... font-geistmono_regular">money</a>,
+                  <a class={`font-geistmono_regular ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}>money</a>,
                   be more{" "}
-                  <a class="text-stone-200 ... font-geistmono_regular">
+                  <a class={`font-geistmono_regular ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}>
                     sustainable
                   </a>
                   . <br /> <br />{" "}
                   <h1 
                     id={styles._H2} 
-                    class="text-stone-200 ... font-avant_garde_bold">
+                    class={`font-avant_garde_bold ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}>
                     Subscribe and Save! 
                   </h1>
                 </h3>
@@ -64,6 +71,13 @@ export default class Subcribe_PFBD extends Component {
 
     )
   }
+}
+
+// Wrapper to provide theme context
+export default function Subcribe_PFBD() {
+  const { theme } = useTheme();
+  
+  return <SubscribePFBDInner theme={theme} />;
 }
 
 

@@ -13,8 +13,9 @@ import Sides_PFBD from '../../components/Sides_PFBD/sides_PFBD';
 import Header from '../../components/Header/Header';
 import Header_PFBD from '../../components/Header_PFBD/Header_PFBD';
 import Subfooter from '../../components/Subfooter2/subfooter2';
-import Footer from '../../components/Footer/Footer';
+import Footer from '../../components/Footer/FooterWrapper';
 import SubscribePFBD from '../../components/Subscribe_PFBD/subscribePFBD';
+import { useTheme } from '../../components/Context/ThemeContext';
 
 import PFBD_icon from "./pfbd_logo_white.svg";
 
@@ -27,6 +28,7 @@ import styles from './plastic_free_by_design.module.css';
 
 
 const PFBD = () => {
+  const { theme } = useTheme();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
@@ -68,18 +70,17 @@ const PFBD = () => {
   const productGroups = chunkIntoGroupsOfFive(products);
 
   return (
+
     <>
-      <PFDBMenu />
+      {/* <PFDBMenu /> */}
       <Header_PFBD />
+      {/* <Header /> */}
       <Sides_PFBD />
       {/* Static background */}
       <VHSGrain />
       
 
-      <section  className={styles.center_holder} 
-                style={{
-                  paddingTop: '240px',                
-                }}>
+      <section  className={styles.center_holder}>
         <div className={styles.grid_0_product}>
           <div id={styles.PFBD_INTRO}>
             <div  id={styles.LOGO}
@@ -111,7 +112,7 @@ const PFBD = () => {
                   position:'relative',
                   
                 }}>
-                  <h1 id={styles._H1_LARGE} className='text-stone-50 font-margin_demo'><a className='text-stone-50 font-avant_garde_bold'id={styles._H2} >This is...</a><br/>Plastic Free_<br/>By Design</h1>
+                  <h1 id={styles._H1_LARGE} className={`font-margin_demo ${theme === 'light' ? 'text-black' : 'text-stone-50'}`}><a className={`font-avant_garde_bold ${theme === 'light' ? 'text-black' : 'text-stone-50'}`} id={styles._H2} >This is...</a><br/>Plastic Free_<br/>By Design</h1>
             </div>
 
             <div  id={styles.SUBTITLE}
@@ -121,7 +122,7 @@ const PFBD = () => {
                   position:'relative',
                 
                 }}>
-                  <h2 id={styles._H2} className='text-stone-50 font-avant_garde_bold'>The highest quality organic, sustainably <br/> sourced, halal wholefoods </h2>
+                  <h2 id={styles._H2} className={`font-avant_garde_bold ${theme === 'light' ? 'text-black' : 'text-stone-50'}`}>The highest quality organic, sustainably <br/> sourced, halal wholefoods </h2>
             </div>
           </div>
         </div>
@@ -195,8 +196,10 @@ const PFBD = () => {
                             />
                           </div>
 
-                          {/* Dark overlay */}
-                          <div className="absolute inset-0 bg-black/80 opacity-0 transition-opacity duration-500 group-hover:opacity-100 " />
+                          {/* Theme-aware overlay */}
+                          <div className={`absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 ${
+                            theme === 'light' ? 'bg-white/30' : 'bg-black/80'
+                          }`} />
 
                           {/* Icons */}
                           <div id={styles.PRODUCT_OVERLAY_GRID} style={{ position: "absolute", width: "100%", height: "100%",  left: "0px", top:"0px", zIndex:"30"}}>
@@ -207,14 +210,14 @@ const PFBD = () => {
                               <Image src={text_logo} alt="Logo Text" fill style={{ objectFit: "cover" }} quality={100} loading="lazy" placeholder="blur" blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q==" />
                             </div> 
                             <div style={{ gridArea: "TITLE", position: "relative", zIndex: 100}}>
-                              <h3  id={styles._H2}  className="text-center text-stone-50 font-avant_garde_bold opacity-0 translate-y-10 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">{parse(product.title)}</h3>
+                              <h3  id={styles._H2}  className={`text-center font-avant_garde_bold opacity-0 translate-y-10 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 ${theme === 'light' ? 'text-black' : 'text-stone-50'}`}>{parse(product.title)}</h3>
                             </div>   
                           </div>
                         </Link>
 
                         <div className={styles.text}>
-                          <h2 id={styles._H2} className={styles.title} class=" text-stone-200 ... font-avant_garde_bold ...">{parse(product.title)} </h2>
-                          <p id={styles._H3} className={styles.subtitle} class=" text-stone-200 ... font-geistmono_regular ...">{parse(product.subtitle)}</p>
+                          <h2 id={styles._H2} className={styles.title} class={`font-avant_garde_bold ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}>{parse(product.title)} </h2>
+                          <p id={styles._H3} className={styles.subtitle} class={`font-geistmono_regular ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}>{parse(product.subtitle)}</p>
                         </div>
                       </div>
                     ))}
@@ -243,8 +246,10 @@ const PFBD = () => {
                                   />
                                 </div>
 
-                                {/* Dark overlay */}
-                                <div className="absolute inset-0 bg-black/80 opacity-0 transition-opacity duration-500 group-hover:opacity-100 " /> 
+                                {/* Theme-aware overlay */}
+                                <div className={`absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 ${
+                                  theme === 'light' ? 'bg-white/30' : 'bg-black/80'
+                                }`} /> 
 
 
                                 {/* Icons */}
@@ -256,14 +261,14 @@ const PFBD = () => {
                                     <Image src={text_logo} alt="Logo Text" fill style={{ objectFit: "cover" }} quality={100} loading="lazy" placeholder="blur" blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q==" />
                                   </div> 
                                   <div style={{ gridArea: "TITLE", position: "relative", zIndex: 100}}>
-                                    <h3  id={styles._H2}  className="text-center text-stone-50 font-avant_garde_bold opacity-0 translate-y-10 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">{parse(group[3].title)} </h3>
+                                    <h3  id={styles._H2}  className={`text-center font-avant_garde_bold opacity-0 translate-y-10 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 ${theme === 'light' ? 'text-black' : 'text-stone-50'}`}>{parse(group[3].title)} </h3>
                                   </div>   
                                 </div>
 
                               </Link>
                               <div className={styles.text}>
-                                <h2 id={styles._H2} className={styles.title} class=" text-stone-200 ... font-avant_garde_bold ...">{parse(group[3].title)}</h2>
-                                <p id={styles._H3} className={styles.subtitle} class=" text-stone-200 ... font-geistmono_regular ...">{parse(group[3].subtitle)}</p>
+                                <h2 id={styles._H2} className={styles.title} class={`font-avant_garde_bold ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}>{parse(group[3].title)}</h2>
+                                <p id={styles._H3} className={styles.subtitle} class={`font-geistmono_regular ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}>{parse(group[3].subtitle)}</p>
                               </div>
                             </div>
 
@@ -281,8 +286,10 @@ const PFBD = () => {
                                   />
                                 </div>
 
-                                {/* Dark overlay */}
-                                <div className="absolute inset-0 bg-black/80 opacity-0 transition-opacity duration-500 group-hover:opacity-100 " /> 
+                                {/* Theme-aware overlay */}
+                                <div className={`absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 ${
+                                  theme === 'light' ? 'bg-white/30' : 'bg-black/80'
+                                }`} /> 
 
                                 {/* Icons */}
                                 <div id={styles.PRODUCT_OVERLAY_GRID} style={{ position: "absolute", width: "100%", height: "100%",  left: "0px", top:"0px", zIndex:"30"}}>
@@ -293,14 +300,14 @@ const PFBD = () => {
                                     <Image src={text_logo} alt="Logo Text" fill style={{ objectFit: "cover" }} quality={100} loading="lazy" placeholder="blur" blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q==" />
                                   </div> 
                                   <div style={{ gridArea: "TITLE", position: "relative", zIndex: 100}}>
-                                    <h3  id={styles._H2}  className="text-center text-stone-50 font-avant_garde_bold opacity-0 translate-y-10 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">{parse(group[4].title)}</h3>
+                                    <h3  id={styles._H2}  className={`text-center font-avant_garde_bold opacity-0 translate-y-10 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 ${theme === 'light' ? 'text-black' : 'text-stone-50'}`}>{parse(group[4].title)}</h3>
                                   </div>   
                                 </div>
 
                               </Link>
                               <div className={styles.text}>
-                                <h2 id={styles._H2} className={styles.title} class=" text-stone-200 ... font-avant_garde_bold ...">{parse(group[4].title)}</h2>
-                                <p id={styles._H3} className={styles.subtitle} class=" text-stone-200 ... font-geistmono_regular ...">{parse(group[4].subtitle)}</p>
+                                <h2 id={styles._H2} className={styles.title} class={`font-avant_garde_bold ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}>{parse(group[4].title)}</h2>
+                                <p id={styles._H3} className={styles.subtitle} class={`font-geistmono_regular ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}>{parse(group[4].subtitle)}</p>
                               </div>
                             </div>
                           </>
@@ -341,8 +348,10 @@ const PFBD = () => {
                                   />
                                 </div>
 
-                                {/* Dark overlay */}
-                                <div className="absolute inset-0 bg-black/80 opacity-0 transition-opacity duration-500 group-hover:opacity-100 " /> 
+                                {/* Theme-aware overlay */}
+                                <div className={`absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 ${
+                                  theme === 'light' ? 'bg-white/30' : 'bg-black/80'
+                                }`} /> 
 
                                 {/* Icons */}
                                 <div id={styles.PRODUCT_OVERLAY_GRID} style={{ position: "absolute", width: "100%", height: "100%",  left: "0px", top:"0px", zIndex:"30"}}>
@@ -353,14 +362,14 @@ const PFBD = () => {
                                     <Image src={text_logo} alt="Logo Text" fill style={{ objectFit: "cover" }} quality={100} loading="lazy" placeholder="blur" blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q==" />
                                   </div> 
                                   <div style={{ gridArea: "TITLE", position: "relative", zIndex: 100}}>
-                                    <h3  id={styles._H2}  className="text-center text-stone-50 font-avant_garde_bold opacity-0 translate-y-10 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">{parse(group[4].title)} </h3>
+                                    <h3  id={styles._H2}  className={`text-center font-avant_garde_bold opacity-0 translate-y-10 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 ${theme === 'light' ? 'text-black' : 'text-stone-50'}`}>{parse(group[4].title)} </h3>
                                   </div>   
                                 </div>
 
                               </Link>
                               <div className={styles.text}>
-                                <h2 id={styles._H2} className={styles.title} class=" text-stone-200 ... font-avant_garde_bold ...">{parse(group[4].title)}</h2>
-                                <p id={styles._H3} className={styles.subtitle} class=" text-stone-200 ... font-geistmono_regular ...">{parse(group[4].subtitle)}</p>
+                                <h2 id={styles._H2} className={styles.title} class={`font-avant_garde_bold ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}>{parse(group[4].title)}</h2>
+                                <p id={styles._H3} className={styles.subtitle} class={`font-geistmono_regular ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}>{parse(group[4].subtitle)}</p>
                               </div>
                             </div>
 
@@ -386,8 +395,10 @@ const PFBD = () => {
                                     />
                                   </div>
 
-                                  {/* Dark overlay */}
-                                  <div className="absolute inset-0 bg-black/80 opacity-0 transition-opacity duration-500 group-hover:opacity-100 " />
+                                  {/* Theme-aware overlay */}
+                                  <div className={`absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 ${
+                                    theme === 'light' ? 'bg-white/30' : 'bg-black/80'
+                                  }`} />
 
                                   {/* Icons */}
                                   <div id={styles.PRODUCT_OVERLAY_GRID} style={{ position: "absolute", width: "100%", height: "100%",  left: "0px", top:"0px", zIndex:"30"}}>
@@ -398,14 +409,14 @@ const PFBD = () => {
                                       <Image src={text_logo} alt="Logo Text" fill style={{ objectFit: "cover" }} quality={100} loading="lazy" placeholder="blur" blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q==" />
                                     </div> 
                                     <div style={{ gridArea: "TITLE", position: "relative", zIndex: 100}}>
-                                      <h3  id={styles._H2}  className="text-center text-stone-50 font-avant_garde_bold opacity-0 translate-y-10 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">{parse(group[3].title)} </h3>
+                                      <h3  id={styles._H2}  className={`text-center font-avant_garde_bold opacity-0 translate-y-10 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 ${theme === 'light' ? 'text-black' : 'text-stone-50'}`}>{parse(group[3].title)} </h3>
                                     </div>   
                                   </div>
 
                               </Link>
                               <div className={styles.text}>
-                                <h2 className={styles.title} class=" text-stone-200 ... font-avant_garde_bold ...">{parse(group[3].title)}</h2>
-                                <p id={styles._H3} className={styles.subtitle} class=" text-stone-200 ... font-geistmono_regular ...">{parse(group[3].subtitle)}</p>
+                                <h2 className={styles.title} class={`font-avant_garde_bold ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}>{parse(group[3].title)}</h2>
+                                <p id={styles._H3} className={styles.subtitle} class={`font-geistmono_regular ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}>{parse(group[3].subtitle)}</p>
                               </div>
                             </div>
 
@@ -429,6 +440,7 @@ const PFBD = () => {
       <Subfooter />
       <Footer />
     </>
+
   );
 };
 

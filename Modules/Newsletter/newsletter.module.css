@@ -46,6 +46,15 @@
   justify-content: center;
   background-color: aliceblue;
   margin: 0;
+  transition: background-color 0.3s ease;
+}
+
+:global(.light) .center_holder {
+  background-color: rgb(250, 250, 249);
+}
+
+:global(.dark) .center_holder {
+  background-color: aliceblue;
 }
 
 #SHADOW_SECTION_BLOG {
@@ -58,6 +67,15 @@
   z-index: 1;
   top: 0px;
   left: 0;
+  transition: background-color 0.3s ease;
+}
+
+:global(.light) #SHADOW_SECTION_BLOG {
+  background-color: rgb(250, 250, 249);
+}
+
+:global(.dark) #SHADOW_SECTION_BLOG {
+  background-color: #171717;
 }
 
 .grid_0_scroll {
@@ -363,7 +381,7 @@
   grid-area: IMAGE;
   display: grid;
   grid-template-columns: 1fr;
-  grid-row-gap: ;
+  grid-row-gap: 20px;
   grid-template-rows: auto auto;
   grid-template-areas: "IMAGES";
 }
@@ -434,7 +452,6 @@
 #SUB_TAG {
   grid-area: SUB_MAIN;
   position: relative;
-  grid-area: ;
   width: 100%;
   display: grid;
   grid-row-gap: 20px;
@@ -451,7 +468,6 @@
 #BODY_HOLDER {
   grid-area: BODY;
   position: relative;
-  grid-area: ;
   width: 100%;
   display: grid;
   grid-row-gap: 10px;
@@ -716,6 +732,15 @@
     z-index: 1;
     top: 0px;
     left: 0;
+    transition: background-color 0.3s ease;
+  }
+
+  :global(.light) #SHADOW_SECTION_BLOG {
+    background-color: rgb(250, 250, 249);
+  }
+
+  :global(.dark) #SHADOW_SECTION_BLOG {
+    background-color: #171717;
   }
 
   #SHADOW_SECTION_TITLE {
@@ -879,6 +904,15 @@
     justify-content: center;
     background-color: aliceblue;
     margin: 0;
+    transition: background-color 0.3s ease;
+  }
+
+  :global(.light) .center_holder {
+    background-color: rgb(250, 250, 249);
+  }
+
+  :global(.dark) .center_holder {
+    background-color: aliceblue;
   }
 
   .grid_0 {
@@ -886,7 +920,7 @@
     width: 100%;
     background-color: rgb(23 23 23);
     display: grid;
-
+    transition: background-color 0.3s ease;
     padding-left: 30px;
     padding-right: 30px;
     grid-row-gap: 40px;
@@ -896,6 +930,14 @@
       "  .  "
       " MAIN-AREA ";
     margin-bottom: 0px;
+  }
+
+  :global(.light) .grid_0 {
+    background-color: rgb(250, 250, 249);
+  }
+
+  :global(.dark) .grid_0 {
+    background-color: rgb(23 23 23);
   }
 
   #SALES_GRID_HOLDER {
@@ -1015,7 +1057,7 @@
     width: 100%;
     background-color: rgb(23 23 23);
     display: grid;
-
+    transition: background-color 0.3s ease;
     padding-left: 30px;
     padding-right: 30px;
     grid-row-gap: 40px;
@@ -1025,6 +1067,14 @@
       "  .  "
       " MAIN-AREA ";
     margin-bottom: 0px;
+  }
+
+  :global(.light) .grid_0_blog {
+    background-color: rgb(250, 250, 249);
+  }
+
+  :global(.dark) .grid_0_blog {
+    background-color: rgb(23 23 23);
   }
 
   .grid_0_scroll {
@@ -1476,7 +1526,7 @@
     width: 100%;
     background-color: rgb(23 23 23);
     display: grid;
-
+    transition: background-color 0.3s ease;
     padding-left: 20px;
     padding-right: 20px;
     grid-row-gap: 20px;
@@ -1486,6 +1536,14 @@
       "  .  "
       " MAIN-AREA ";
     margin-bottom: 0px;
+  }
+
+  :global(.light) .grid_0 {
+    background-color: rgb(250, 250, 249);
+  }
+
+  :global(.dark) .grid_0 {
+    background-color: rgb(23 23 23);
   }
 
   #LINK_HOLDER {

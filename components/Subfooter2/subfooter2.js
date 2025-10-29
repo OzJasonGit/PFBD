@@ -1,8 +1,16 @@
+"use client";
+
 import styles from './subfooter2.module.css'
 import React, { Component } from 'react';
-export default class Subfooter extends Component {
+import { useTheme } from '../Context/ThemeContext';
+
+class SubfooterInner extends Component {
+  static defaultProps = {
+    theme: 'dark',
+  };
 
   render() {
+    const { theme } = this.props;
     return (
 
         <section id={styles.SHADOW_SECTION_TAG} class={styles.center_holder}>
@@ -11,10 +19,10 @@ export default class Subfooter extends Component {
                 <div id={styles.TAG}>
                 <h1
                     id={styles._H1}
-                    class="text-7xl ... text-stone-400 ... font-avant_garde_bold">
+                    class={`text-7xl font-avant_garde_bold ${theme === 'light' ? 'text-black' : 'text-stone-400'}`}>
                     {" "}
-                    You're the <a class="text-stone-200 ...">pilot </a>... We are <br/>
-                    your<a class="text-emerald-200 ..."> copilot</a>.
+                    You're the <a class={`${theme === 'light' ? 'text-black' : 'text-stone-200'}`}>pilot </a>... We are <br/>
+                    your<a class={`${theme === 'light' ? 'text-black' : 'text-emerald-200'}`}> copilot</a>.
                 </h1>
                 </div>
             </div>
@@ -25,5 +33,12 @@ export default class Subfooter extends Component {
 
     )
   }
+}
+
+// Wrapper to provide theme context
+export default function Subfooter() {
+  const { theme } = useTheme();
+  
+  return <SubfooterInner theme={theme} />;
 }
 

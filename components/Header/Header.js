@@ -10,6 +10,8 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import { ShadCN_Header } from "./ShadCN_Header/shadCN_Header";
 import { padding, width } from "@mui/system";
+import { useTheme } from "../Context/ThemeContext";
+import ThemeToggle from "../ThemeToggle/ThemeToggle";
 
 
 
@@ -43,6 +45,7 @@ const Clock = dynamic(() => import("./Clock/clock"), { ssr: false });
 const DateComponent = dynamic(() => import("./Clock/date"), { ssr: false });
 
 export default function Header() {
+  const { theme } = useTheme();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -116,11 +119,22 @@ export default function Header() {
   return (
     <>
       <section id={styles.SHADOW_SECTION} className={styles.center_holder}>
-        <div className={styles.HEADER_HOLDER}>
+        <div 
+          className={styles.HEADER_HOLDER}
+          style={{
+            backgroundColor: theme === 'light' ? '#ffffff' : '#171717',
+            borderBottom: theme === 'light' ? '1px solid #e7e5e4' : 'none'
+          }}
+        >
 
 
 
-          <div id={styles.HEADER}>
+          <div 
+            id={styles.HEADER}
+            style={{
+              backgroundColor: theme === 'light' ? '#ffffff' : '#171717'
+            }}
+          >
 
             <header id={styles.FIXED_HEADER}>
 
@@ -172,29 +186,52 @@ export default function Header() {
 
               {/* Time and Date */}
               <div className="content-center ..." id={styles.TIME}>
-                <Clock />
-                <div className="bg-zinc-500 ..." id={styles.B1}></div>
-                <DateComponent />
+                <Clock theme={theme} />
+                <div className={`${theme === 'light' ? 'bg-zinc-300' : 'bg-zinc-500'} ...`} id={styles.B1}></div>
+                <DateComponent theme={theme} />
               </div>
 
-              {/* Basket and Favorites */}
-              {/* <div id={styles.BASKET_CONTAINER}>
+              {/* Basket, Favorites, and Theme Toggle */}
+              <div id={styles.BASKET_CONTAINER} style={{ display: "flex", alignItems: "center", gap: "20px", justifyContent: "flex-end" }}>
                 <a href="/cart" className="hover:text-red-500 transition-colors duration-300">
-                  <FontAwesomeIcon icon={faHeart} size="xl" className="text-stone-50 hover:text-red-500 transition-colors duration-300" />
+                  <FontAwesomeIcon 
+                    icon={faHeart} 
+                    size="xl" 
+                    className={`transition-colors duration-300 ${
+                      theme === 'light' 
+                        ? 'text-black hover:text-red-500' 
+                        : 'text-stone-50 hover:text-red-500'
+                    }`} 
+                  />
                 </a>
 
                 <a href="/cart" className="hover:text-emerald-300 transition-colors duration-300">
-                  <FontAwesomeIcon icon={faCartShopping} size="xl" className="text-stone-50 hover:text-emerald-300 transition-colors duration-300" />
+                  <FontAwesomeIcon 
+                    icon={faCartShopping} 
+                    size="xl" 
+                    className={`transition-colors duration-300 ${
+                      theme === 'light' 
+                        ? 'text-black hover:text-emerald-300' 
+                        : 'text-stone-50 hover:text-emerald-300'
+                    }`} 
+                  />
                 </a>
 
-                <button className="hover:text-gray-300 transition-colors duration-300">
-                  <div className="flex flex-col gap-1">
-                    <div className="w-6 h-0.5 bg-stone-50"></div>
-                    <div className="w-6 h-0.5 bg-stone-50"></div>
-                    <div className="w-6 h-0.5 bg-stone-50"></div>
+                <button className={`transition-colors duration-300 ${
+                  theme === 'light' ? 'hover:text-gray-600' : 'hover:text-gray-300'
+                }`}>
+                  <div className="flex flex-col gap-2">
+                    <div className={`w-6 h-0.5 ${theme === 'light' ? 'bg-black' : 'bg-stone-50'}`}></div>
+                    <div className={`w-6 h-0.5 ${theme === 'light' ? 'bg-black' : 'bg-stone-50'}`}></div>
+                    <div className={`w-6 h-0.5 ${theme === 'light' ? 'bg-black' : 'bg-stone-50'}`}></div>
                   </div>
                 </button>
-              </div> */}
+                
+                {/* Theme Toggle */}
+                <div style={{ marginLeft: "10px" }}>
+                  <ThemeToggle />
+                </div>
+              </div>
 
               {/* Sign In/Sign Up or User Dropdown */}
               <div className="flex justify-end ..." id={styles.SIGNUP_CONTAINER}>
@@ -204,17 +241,19 @@ export default function Header() {
                       {/* User Icon Button */}
                       <div className="flex items-center gap-5">
 
-                      <span className="text-slate-50 font-medium">Hi, {user.name}</span>
+                      <span className={`font-medium ${theme === 'light' ? 'text-black' : 'text-slate-50'}`}>Hi, {user.name}</span>
 
                       <button
                         onClick={toggleDropdown}
-                        className="flex items-center justify-center p-2 rounded-full hover:bg-gray-100/10 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+                        className={`flex items-center justify-center p-2 rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 ${
+                          theme === 'light' ? 'hover:bg-gray-200' : 'hover:bg-gray-100/10'
+                        }`}
                         aria-haspopup="true"
                         aria-expanded={isDropdownOpen}
                         >
                         <FontAwesomeIcon
                           icon={faUser}
-                          className="text-slate-50 w-6 h-6 hover:text-gray-300 transition-colors duration-200"
+                          className={`w-6 h-6 transition-colors duration-200 ${theme === 'light' ? 'text-black hover:text-stone-700' : 'text-slate-50 hover:text-gray-300'}`}
                           />
                       </button>
                           </div>
@@ -252,13 +291,13 @@ export default function Header() {
                   ) : (
                     <div className="content-center ..." id={styles.SIGNUP_GRID}>
                       <Link id={styles.STORIES} href="/signup" style={{ gridArea: "SIGNUP", position: "relative", height: "100%", width: "100%", textAlign: "center", left: "-15.5px" }}>
-                        <h3 id={styles.H_3_STORIES} className="text-center ...  text-slate-50 font-avant_garde_bold" data-content="Signup">
+                        <h3 id={styles.H_3_STORIES} className={`text-center font-avant_garde_bold ${theme === 'light' ? 'text-black' : 'text-slate-50'}`} data-content="Signup">
                           Signup
                         </h3>
                       </Link>
-                      <div className="bg-zinc-500 ..." id={styles.B1}></div>
+                      <div className={`${theme === 'light' ? 'bg-zinc-300' : 'bg-zinc-500'} ...`} id={styles.B1}></div>
                       <Link id={styles.SIGNUP} href="/signin" style={{ gridArea: "LOGIN", position: "relative", height: "100%", width: "100%", textAlign: "center", left: "-15px" }}>
-                        <h3 id={styles.H_3_STORIES} className="text-center ...  text-slate-50 font-avant_garde_bold" data-content="Login">
+                        <h3 id={styles.H_3_STORIES} className={`text-center font-avant_garde_bold ${theme === 'light' ? 'text-black' : 'text-slate-50'}`} data-content="Login">
                           Login
                         </h3>
                       </Link>

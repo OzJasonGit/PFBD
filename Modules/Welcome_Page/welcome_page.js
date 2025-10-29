@@ -4,13 +4,14 @@ import Video from "./client/Video/video";
 import styles from './welcome_page.module.css';
 
 import { useRouter } from "next/navigation";
+import { useTheme } from '../../components/Context/ThemeContext';
 
 import PFDBMenu from "../../components/Menu_PFBD/menu_PFBD";
 
 import Subscribe_2 from "../../components/Subscribetop/subscribe_2";
 import Sides from "../../components/Sides/sides";
 import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/Footer";
+import Footer from "../../components/Footer/FooterWrapper";
 import Collapsed_Sales from "../../components/Collapse_Sales/collapse_sales";
 
 import Bimcopilot_logo from "../../components/services_bimcopilot/services_black";
@@ -20,6 +21,7 @@ import Image from "next/image";
 
 
 const Welcome_Page_Main = ({ stories, firstStory }) => {
+  const { theme } = useTheme();
   const storiesSolo_1 = stories.filter((story, i) => i == 3)
   const storiesToMap = stories.filter((story, i) => i != 0);
   const router = useRouter();
@@ -27,14 +29,20 @@ const Welcome_Page_Main = ({ stories, firstStory }) => {
    return (
 
     <>
-      <PFDBMenu/>
+      {/* <PFDBMenu/>  */}
       <Header/>
       <Sides/>
 
       <Bimcopilot_logo/>
 
 
-      <section id={styles.SHADOW_SECTION_BLOG} class={styles.center_holder}>
+      <section 
+        id={styles.SHADOW_SECTION_BLOG} 
+        class={styles.center_holder}
+        style={{
+          backgroundColor: theme === 'light' ? 'rgb(250, 250, 249)' : '#171717'
+        }}
+      >
         <div class={styles.grid_0_scroll}>
             <div id={styles.SALES_GRID_HOLDER}>
                 <div  id={styles.SALES_IMAGE_HOLDER}>                 
@@ -52,13 +60,22 @@ const Welcome_Page_Main = ({ stories, firstStory }) => {
 
 
 
-      <section id={styles.SHADOW_SECTION_BLOG} class={styles.center_holder}>
+      <section 
+        id={styles.SHADOW_SECTION_BLOG} 
+        class={styles.center_holder}
+        style={{
+          backgroundColor: theme === 'light' ? 'rgb(250, 250, 249)' : '#171717'
+        }}
+      >
         <div class={styles.grid_0_scroll}>
             <div id={styles.BOUGHT_TOGETHER_GRID}> 
 
                 <div id={styles.BOUGHT_TOGETHER_BLOCK}>
                     <div id={styles.BOUGHT_TITLE_HOLDER}>
-                        <h3 id={styles._H3} class="text-4xl ... text-stone-400 ... font-avant_garde_bold">
+                        <h3 
+                          id={styles._H3} 
+                          class={`text-4xl font-avant_garde_bold ${theme === 'light' ? 'text-black' : 'text-stone-400'}`}
+                        >
                             Useful Tools for Designers <br/>
                             Architects and Enthusiasts  
                         </h3>
@@ -192,18 +209,25 @@ const Welcome_Page_Main = ({ stories, firstStory }) => {
 
                 <div id={styles.PRODUCT_DESCRIPTION}>
                     <div id={styles.P_TITLE}>
-                        <h2 id={styles._H3} class="text-4xl ... text-stone-400 ... font-avant_garde_bold">
+                        <h2 
+                          id={styles._H3} 
+                          class={`text-4xl font-avant_garde_bold ${theme === 'light' ? 'text-black' : 'text-stone-400'}`}
+                        >
                             Shop Here 
                         </h2>
                     </div>
 
                     <div  id={styles.P_SUBTITLE}>   
-                        <h3 id={styles._H3} class="text-lg ... text-stone-200 ... font-avant_garde_bold">
+                        <h3 
+                          id={styles._H3} 
+                          class={`text-lg font-avant_garde_bold ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}
+                        >
                             This is the description title 
                             Delta compression using up to 12 threads
                             Compressing objects: 100% (5/5), done.     
 
-                            <a class="text-stone-200 ... font-avant_garde_bold"
+                            <a 
+                              class={`font-avant_garde_bold ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}
                             >
                             Automated systems for Architects, Designers and Manufacturers.
                             </a>{" "}                                               

@@ -3,13 +3,14 @@
 import styles from './newsletter.module.css';
 
 import { useRouter } from "next/navigation";
+import { useTheme } from '../../components/Context/ThemeContext';
 
 import PFDBMenu from "../../components/Menu_PFBD/menu_PFBD";
 
 import Subscribe_2 from "../../components/Subscribetop/subscribe_2";
 import Sides from "../../components/Sides/sides";
 import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/Footer";
+import Footer from "../../components/Footer/FooterWrapper";
 import Collapsed_Sales from "../../components/Collapse_Sales/collapse_sales";
 
 import Services_1 from "../../components/services_bimcopilot/services_1";
@@ -19,6 +20,7 @@ import Image from "next/image";
 
 
 const Saleslanding = ({ stories, firstStory }) => {
+  const { theme } = useTheme();
   const storiesSolo_1 = stories.filter((story, i) => i == 3)
   const storiesToMap = stories.filter((story, i) => i != 0);
   const router = useRouter();
@@ -26,7 +28,7 @@ const Saleslanding = ({ stories, firstStory }) => {
    return (
 
     <>
-      <PFDBMenu/>
+      {/* <PFDBMenu/> */}
       <Header/>
       <Sides/>
 
@@ -36,12 +38,24 @@ const Saleslanding = ({ stories, firstStory }) => {
 
       
 
-      <section id={styles.SHADOW_SECTION_BLOG} class={styles.center_holder}>
+      <section 
+        id={styles.SHADOW_SECTION_BLOG} 
+        class={styles.center_holder}
+        style={{
+          backgroundColor: theme === 'light' ? 'rgb(250, 250, 249)' : '#171717'
+        }}
+      >
         <Subscribe_2/>     
       </section>
 
 
-      <section id={styles.SHADOW_SECTION_BLOG} class={styles.center_holder}>
+      <section 
+        id={styles.SHADOW_SECTION_BLOG} 
+        class={styles.center_holder}
+        style={{
+          backgroundColor: theme === 'light' ? 'rgb(250, 250, 249)' : '#171717'
+        }}
+      >
         <div class={styles.grid_0_scroll}>
             <div id={styles.SALES_GRID_HOLDER}>
 
@@ -51,7 +65,7 @@ const Saleslanding = ({ stories, firstStory }) => {
                         
 
                         <div id={styles.SALES_IMAGE_1}>
-                            <h2  class="text-6xl ... text-stone-400 ... font-avant_garde_bold" 
+                            <h2  class={`text-6xl font-avant_garde_bold ${theme === 'light' ? 'text-black' : 'text-stone-400'}`}
                                 style={{
                                 paddingBottom: "0",
                                 }}>
@@ -88,7 +102,7 @@ const Saleslanding = ({ stories, firstStory }) => {
                                 style={{
                                     gridArea: 'TITLE'                                  
                                 }}>
-                                    <h3 class="text-3xl ... text-stone-200 ... font-avant_garde_bold">
+                                    <h3 class={`text-3xl font-avant_garde_bold ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}>
                                         What the hell does this mean 
 
                                     </h3>
@@ -97,7 +111,7 @@ const Saleslanding = ({ stories, firstStory }) => {
                                 style={{
                                     gridArea: 'BODY'                                  
                                 }}>
-                                    <p class="text-lg ... text-stone-400 ... font-avant_garde_medium">
+                                    <p class={`text-lg font-avant_garde_medium ${theme === 'light' ? 'text-black' : 'text-stone-400'}`}>
                                         This is the paragraph who are you? 
                                         
                                     </p>
@@ -114,7 +128,13 @@ const Saleslanding = ({ stories, firstStory }) => {
 
 
 
-      <section id={styles.SHADOW_SECTION_BLOG} class={styles.center_holder}>
+      <section 
+        id={styles.SHADOW_SECTION_BLOG} 
+        class={styles.center_holder}
+        style={{
+          backgroundColor: theme === 'light' ? 'rgb(250, 250, 249)' : '#171717'
+        }}
+      >
         <div class={styles.grid_0_scroll}>
 
             <div id={styles.BOUGHT_IMAGE_HOLDER}>

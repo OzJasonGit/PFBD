@@ -1,6 +1,7 @@
 "use client";
 import * as React from "react";
 import Link from "next/link";
+import { useTheme } from "../../Context/ThemeContext";
 
 import {
   NavigationMenu,
@@ -12,13 +13,13 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 
-function ListItem({ title, children, href, ...props }) {
+function ListItem({ title, children, href, theme, ...props }) {
   return (
     <li {...props}>
       <NavigationMenuLink asChild>
         <Link href={href}>
-          <div className="text-sm leading-none font-medium text-stone-50">{title}</div>
-          <p className="text-stone-400 line-clamp-2 text-sm leading-snug">
+          <div className={`text-sm leading-none font-medium ${theme === 'light' ? 'text-black' : 'text-stone-50'}`}>{title}</div>
+          <p className={`line-clamp-2 text-sm leading-snug ${theme === 'light' ? 'text-gray-600' : 'text-stone-400'}`}>
             {children}
           </p>
         </Link>
@@ -28,17 +29,23 @@ function ListItem({ title, children, href, ...props }) {
 }
 
 export function ShadCN_Header() {
+  const { theme } = useTheme();
+  
   return (
-    <div className="dark-theme-nav" style={{ color: '#f5f5f4' }}>
+    <div className="dark-theme-nav" style={{ color: theme === 'light' ? '#000000' : '#f5f5f4' }}>
       <NavigationMenu viewport={false}>
         <NavigationMenuList className="bg-transparent">
           {/* Home Menu */}
           <NavigationMenuItem>
             <Link 
               href="/plastic_free_by_design"
-              className="text-stone-50 bg-transparent hover:bg-stone-700/30 font-avant_garde_bold px-4 py-2 rounded-md transition-colors"
+              className={`bg-transparent font-avant_garde_bold px-4 py-2 rounded-md transition-colors ${
+                theme === 'light' 
+                  ? 'text-black hover:bg-gray-200' 
+                  : 'text-stone-50 hover:bg-stone-700/30'
+              }`}
               style={{ 
-                color: '#f5f5f4', 
+                color: theme === 'light' ? '#000000' : '#f5f5f4', 
                 fontSize: '14px', 
               }}
             >
@@ -49,9 +56,13 @@ export function ShadCN_Header() {
           {/* Shop/Products Menu */}
           <NavigationMenuItem>
             <NavigationMenuTrigger 
-              className="text-stone-50 bg-transparent hover:bg-stone-700/30 font-avant_garde_bold border-none shadow-none data-[state=open]:bg-stone-700/30 data-[state=open]:text-stone-50 focus:bg-stone-700/30 focus:text-stone-50"
+              className={`bg-transparent font-avant_garde_bold border-none shadow-none ${
+                theme === 'light'
+                  ? 'text-black hover:bg-gray-200 data-[state=open]:bg-gray-200 data-[state=open]:text-black focus:bg-gray-200 focus:text-black'
+                  : 'text-stone-50 hover:bg-stone-700/30 data-[state=open]:bg-stone-700/30 data-[state=open]:text-stone-50 focus:bg-stone-700/30 focus:text-stone-50'
+              }`}
               style={{ 
-                color: '#f5f5f4', 
+                color: theme === 'light' ? '#000000' : '#f5f5f4', 
                 fontSize: '14px', 
                 backgroundColor: 'transparent !important',
                 border: 'none !important',
@@ -60,13 +71,20 @@ export function ShadCN_Header() {
             >
               Shop
             </NavigationMenuTrigger>
-            <NavigationMenuContent className="bg-stone-900 border-stone-700">
+            <NavigationMenuContent className={theme === 'light' ? 'bg-white border-gray-200' : 'bg-stone-900 border-stone-700'}>
               <ul className="grid w-[300px] gap-2 p-4">
                 <li>
                   <NavigationMenuLink asChild>
-                    <Link href="/products" className="flex flex-col items-start gap-1 p-2 rounded hover:bg-stone-800/50">
-                      <div className="font-avant_garde_bold text-stone-50 text-sm">All Products</div>
-                      <div className="text-stone-400 text-xs">
+                    <Link 
+                      href="/products" 
+                      className={`flex flex-col items-start gap-1 p-2 rounded ${
+                        theme === 'light' 
+                          ? 'hover:bg-gray-100' 
+                          : 'hover:bg-stone-800/50'
+                      }`}
+                    >
+                      <div className={`font-avant_garde_bold text-sm ${theme === 'light' ? 'text-black' : 'text-stone-50'}`}>All Products</div>
+                      <div className={`text-xs ${theme === 'light' ? 'text-gray-600' : 'text-stone-400'}`}>
                         Browse our products
                       </div>
                     </Link>
@@ -80,9 +98,13 @@ export function ShadCN_Header() {
           <NavigationMenuItem>
             <Link 
               href="/newsletter"
-              className="text-stone-50 bg-transparent hover:bg-stone-700/30 font-avant_garde_bold px-4 py-2 rounded-md transition-colors"
+              className={`bg-transparent font-avant_garde_bold px-4 py-2 rounded-md transition-colors ${
+                theme === 'light' 
+                  ? 'text-black hover:bg-gray-200' 
+                  : 'text-stone-50 hover:bg-stone-700/30'
+              }`}
               style={{ 
-                color: '#f5f5f4', 
+                color: theme === 'light' ? '#000000' : '#f5f5f4', 
                 fontSize: '14px', 
               }}
             >
@@ -94,9 +116,13 @@ export function ShadCN_Header() {
           <NavigationMenuItem>
             <Link 
               href="/bloghome"
-              className="text-stone-50 bg-transparent hover:bg-stone-700/30 font-avant_garde_bold px-4 py-2 rounded-md transition-colors"
+              className={`bg-transparent font-avant_garde_bold px-4 py-2 rounded-md transition-colors ${
+                theme === 'light' 
+                  ? 'text-black hover:bg-gray-200' 
+                  : 'text-stone-50 hover:bg-stone-700/30'
+              }`}
               style={{ 
-                color: '#f5f5f4', 
+                color: theme === 'light' ? '#000000' : '#f5f5f4', 
                 fontSize: '14px', 
               }}
             >
@@ -107,9 +133,13 @@ export function ShadCN_Header() {
           {/* Pages Menu */}
           <NavigationMenuItem>
             <NavigationMenuTrigger 
-              className="text-stone-50 bg-transparent hover:bg-stone-700/30 font-avant_garde_bold border-none shadow-none data-[state=open]:bg-stone-700/30 data-[state=open]:text-stone-50 focus:bg-stone-700/30 focus:text-stone-50"
+              className={`bg-transparent font-avant_garde_bold border-none shadow-none ${
+                theme === 'light'
+                  ? 'text-black hover:bg-gray-200 data-[state=open]:bg-gray-200 data-[state=open]:text-black focus:bg-gray-200 focus:text-black'
+                  : 'text-stone-50 hover:bg-stone-700/30 data-[state=open]:bg-stone-700/30 data-[state=open]:text-stone-50 focus:bg-stone-700/30 focus:text-stone-50'
+              }`}
               style={{ 
-                color: '#f5f5f4', 
+                color: theme === 'light' ? '#000000' : '#f5f5f4', 
                 fontSize: '14px', 
                 backgroundColor: 'transparent !important',
                 border: 'none !important',
@@ -118,13 +148,20 @@ export function ShadCN_Header() {
             >
               More
             </NavigationMenuTrigger>
-            <NavigationMenuContent className="bg-stone-900 border-stone-700">
+            <NavigationMenuContent className={theme === 'light' ? 'bg-white border-gray-200' : 'bg-stone-900 border-stone-700'}>
               <ul className="grid w-[300px] gap-2 p-4">
                 <li>
                   <NavigationMenuLink asChild>
-                    <Link href="/welcome_page" className="flex flex-col items-start gap-1 p-2 rounded hover:bg-stone-800/50">
-                      <div className="font-avant_garde_bold text-stone-50 text-sm">Welcome</div>
-                      <div className="text-stone-400 text-xs">
+                    <Link 
+                      href="/welcome_page" 
+                      className={`flex flex-col items-start gap-1 p-2 rounded ${
+                        theme === 'light' 
+                          ? 'hover:bg-gray-100' 
+                          : 'hover:bg-stone-800/50'
+                      }`}
+                    >
+                      <div className={`font-avant_garde_bold text-sm ${theme === 'light' ? 'text-black' : 'text-stone-50'}`}>Welcome</div>
+                      <div className={`text-xs ${theme === 'light' ? 'text-gray-600' : 'text-stone-400'}`}>
                         Visit welcome page
                       </div>
                     </Link>
@@ -132,9 +169,16 @@ export function ShadCN_Header() {
                 </li>
                 <li>
                   <NavigationMenuLink asChild>
-                    <Link href="/bloghome" className="flex flex-col items-start gap-1 p-2 rounded hover:bg-stone-800/50">
-                      <div className="font-avant_garde_bold text-stone-50 text-sm">Stories</div>
-                      <div className="text-stone-400 text-xs">
+                    <Link 
+                      href="/bloghome" 
+                      className={`flex flex-col items-start gap-1 p-2 rounded ${
+                        theme === 'light' 
+                          ? 'hover:bg-gray-100' 
+                          : 'hover:bg-stone-800/50'
+                      }`}
+                    >
+                      <div className={`font-avant_garde_bold text-sm ${theme === 'light' ? 'text-black' : 'text-stone-50'}`}>Stories</div>
+                      <div className={`text-xs ${theme === 'light' ? 'text-gray-600' : 'text-stone-400'}`}>
                         Read our stories
                       </div>
                     </Link>
@@ -147,9 +191,13 @@ export function ShadCN_Header() {
           {/* Hidden Dashboard - for old navigation structure */}
           <NavigationMenuItem style={{ display: 'none' }}>
             <NavigationMenuTrigger 
-              className="text-stone-50 bg-transparent hover:bg-stone-700/30 font-avant_garde_bold border-none shadow-none data-[state=open]:bg-stone-700/30 data-[state=open]:text-stone-50 focus:bg-stone-700/30 focus:text-stone-50"
+              className={`bg-transparent font-avant_garde_bold border-none shadow-none ${
+                theme === 'light'
+                  ? 'text-black hover:bg-gray-200 data-[state=open]:bg-gray-200 data-[state=open]:text-black focus:bg-gray-200 focus:text-black'
+                  : 'text-stone-50 hover:bg-stone-700/30 data-[state=open]:bg-stone-700/30 data-[state=open]:text-stone-50 focus:bg-stone-700/30 focus:text-stone-50'
+              }`}
               style={{ 
-                color: '#f5f5f4', 
+                color: theme === 'light' ? '#000000' : '#f5f5f4', 
                 fontSize: '14px', 
                 backgroundColor: 'transparent !important',
                 border: 'none !important',
@@ -177,13 +225,20 @@ export function ShadCN_Header() {
               
               Dashboard
             </NavigationMenuTrigger>
-            <NavigationMenuContent className="bg-stone-900 border-stone-700">
+            <NavigationMenuContent className={theme === 'light' ? 'bg-white border-gray-200' : 'bg-stone-900 border-stone-700'}>
               <ul className="grid w-[300px] gap-2 p-4">
                 <li>
                   <NavigationMenuLink asChild>
-                    <Link href="/welcome_page" className="flex flex-col items-start gap-1 p-2 rounded hover:bg-stone-800/50">
-                      <div className="font-avant_garde_bold text-stone-50 text-sm">Welcome</div>
-                      <div className="text-stone-400 text-xs">
+                    <Link 
+                      href="/welcome_page" 
+                      className={`flex flex-col items-start gap-1 p-2 rounded ${
+                        theme === 'light' 
+                          ? 'hover:bg-gray-100' 
+                          : 'hover:bg-stone-800/50'
+                      }`}
+                    >
+                      <div className={`font-avant_garde_bold text-sm ${theme === 'light' ? 'text-black' : 'text-stone-50'}`}>Welcome</div>
+                      <div className={`text-xs ${theme === 'light' ? 'text-gray-600' : 'text-stone-400'}`}>
                         Visit welcome page
                       </div>
                     </Link>
@@ -191,9 +246,16 @@ export function ShadCN_Header() {
                 </li>
                 <li>
                   <NavigationMenuLink asChild>
-                    <Link href="/bloghome" className="flex flex-col items-start gap-1 p-2 rounded hover:bg-stone-800/50">
-                      <div className="font-avant_garde_bold text-stone-50 text-sm">Stories</div>
-                      <div className="text-stone-400 text-xs">
+                    <Link 
+                      href="/bloghome" 
+                      className={`flex flex-col items-start gap-1 p-2 rounded ${
+                        theme === 'light' 
+                          ? 'hover:bg-gray-100' 
+                          : 'hover:bg-stone-800/50'
+                      }`}
+                    >
+                      <div className={`font-avant_garde_bold text-sm ${theme === 'light' ? 'text-black' : 'text-stone-50'}`}>Stories</div>
+                      <div className={`text-xs ${theme === 'light' ? 'text-gray-600' : 'text-stone-400'}`}>
                         Read our stories
                       </div>
                     </Link>
@@ -206,9 +268,13 @@ export function ShadCN_Header() {
           {/* Blog/Stories Menu */}
           <NavigationMenuItem>
             <NavigationMenuTrigger 
-              className="text-stone-50 bg-transparent hover:bg-stone-700/30 font-avant_garde_bold border-none shadow-none data-[state=open]:bg-stone-700/30 data-[state=open]:text-stone-50 focus:bg-stone-700/30 focus:text-stone-50"
+              className={`bg-transparent font-avant_garde_bold border-none shadow-none ${
+                theme === 'light'
+                  ? 'text-black hover:bg-gray-200 data-[state=open]:bg-gray-200 data-[state=open]:text-black focus:bg-gray-200 focus:text-black'
+                  : 'text-stone-50 hover:bg-stone-700/30 data-[state=open]:bg-stone-700/30 data-[state=open]:text-stone-50 focus:bg-stone-700/30 focus:text-stone-50'
+              }`}
               style={{ 
-                color: '#f5f5f4', 
+                color: theme === 'light' ? '#000000' : '#f5f5f4', 
                 fontSize: '14px', 
                 backgroundColor: 'transparent !important',
                 border: 'none !important',
@@ -217,13 +283,20 @@ export function ShadCN_Header() {
             >
               Stories
             </NavigationMenuTrigger>
-            <NavigationMenuContent className="bg-stone-900 border-stone-700">
+            <NavigationMenuContent className={theme === 'light' ? 'bg-white border-gray-200' : 'bg-stone-900 border-stone-700'}>
               <ul className="grid w-[300px] gap-2 p-4">
                 <li>
                   <NavigationMenuLink asChild>
-                    <Link href="/bloghome" className="flex flex-col items-start gap-1 p-2 rounded hover:bg-stone-800/50">
-                      <div className="font-avant_garde_bold text-stone-50 text-sm">Our Blog</div>
-                      <div className="text-stone-400 text-xs">
+                    <Link 
+                      href="/bloghome" 
+                      className={`flex flex-col items-start gap-1 p-2 rounded ${
+                        theme === 'light' 
+                          ? 'hover:bg-gray-100' 
+                          : 'hover:bg-stone-800/50'
+                      }`}
+                    >
+                      <div className={`font-avant_garde_bold text-sm ${theme === 'light' ? 'text-black' : 'text-stone-50'}`}>Our Blog</div>
+                      <div className={`text-xs ${theme === 'light' ? 'text-gray-600' : 'text-stone-400'}`}>
                         Latest insights on BIM, AI, and architecture
                       </div>
                     </Link>

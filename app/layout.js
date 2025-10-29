@@ -7,6 +7,8 @@ import dynamic from 'next/dynamic';
 import Script from "next/script";
 import Analytics from "./analytics";
 import { GA_TRACKING_ID } from "../lib/gtag";
+import Provider from "./utils/Provider";
+import ThemeProviderWrapper from "../components/Context/ThemeProviderWrapper";
 
 
 
@@ -85,7 +87,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="light">
       <head>
         <link
           rel="preload" 
@@ -148,7 +150,11 @@ export default function RootLayout({ children }) {
       </head>
       <body className={`${avant_garde_bold.variable}  ${avant_garde_medium.variable} ${geistmono_regular.variable}   ${geistmono_semibold.variable} ${geist_regular.variable} ${geist_semibold.variable} ${geist_medium.variable} ${margin_demo.variable} ${calisga_regular.variable}`}
             >    
-        <>{children}</>
+        <ThemeProviderWrapper>
+          <Provider>
+            {children}
+          </Provider>
+        </ThemeProviderWrapper>
 
         <PerformanceMonitor />
 

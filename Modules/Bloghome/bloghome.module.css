@@ -55,6 +55,15 @@
     justify-content: center;
     background-color: aliceblue;
     margin: 0;
+    transition: background-color 0.3s ease;
+}
+
+:global(.light) .center_holder {
+    background-color: rgb(250, 250, 249);
+}
+
+:global(.dark) .center_holder {
+    background-color: aliceblue;
 }
 
 .grid_0 {
@@ -209,6 +218,15 @@
     z-index: 1;
     top: 0px;
     left: 0;
+    transition: background-color 0.3s ease;
+}
+
+:global(.light) #SHADOW_SECTION_BLOG {
+    background-color: rgb(250, 250, 249);
+}
+
+:global(.dark) #SHADOW_SECTION_BLOG {
+    background-color: rgb(23, 23, 23);
 }
 
 #SHADOW_SECTION_TITLE {

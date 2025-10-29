@@ -6,7 +6,7 @@ import { useBlogPost } from "@/app/hooks/useBlog";
 import PFDBMenu from "@/components/Menu_PFBD/menu_PFBD";
 import Header from "@/components/Header/Header";
 import Subfooter from "@/components/Subfooter2/subfooter2";
-import Footer from "@/components/Footer/Footer";
+import Footer from "@/components/Footer/FooterWrapper";
 import Sides from "@/components/Sides/sides";
 import SkeletonLoader from "@/components/Loader/loader";
 
@@ -26,7 +26,7 @@ const BlogPost = () => {
   if (isLoading) return <SkeletonLoader />;
   if (error) return (
     <>
-      <PFDBMenu />
+      {/* <PFDBMenu /> */}
       <Header />
       <div className="p-8 text-center text-red-500">Failed to load story. Please try again.</div>
       <Footer />

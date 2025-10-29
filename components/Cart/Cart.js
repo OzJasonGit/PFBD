@@ -11,12 +11,14 @@ import handleCheckout from '@/components/Payment/payment';
 import { useCart } from '@/components/Context/CartContext';
 import { toast } from 'react-toastify';
 import PayPalButton from '@/components/Payment/PayPalButton';
+import { useTheme } from '@/components/Context/ThemeContext';
 
 export default function CheckoutPage() {
   
   const { cartItems, removeFromCart, updateQuantity, loadCart, totalPrice, isLoading } = useCart();
   const [selectedItems, setSelectedItems] = useState([]);
   const router = useRouter();
+  const { theme } = useTheme();
 
   useEffect(() => {
     loadCart();
@@ -108,9 +110,9 @@ export default function CheckoutPage() {
   if (isLoading) {
     return (
       
-      <div className="min-h-screen bg-[#171717] text-white p-8 pt-[110px] flex items-center justify-center">
+      <div className={`min-h-screen p-8 pt-[110px] flex items-center justify-center ${theme === 'light' ? 'bg-[#fafaf9] text-black' : 'bg-[#171717] text-white'}`}>
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white mx-auto mb-4"></div>
+          <div className={`animate-spin rounded-full h-12 w-12 border-b-2 mx-auto mb-4 ${theme === 'light' ? 'border-black' : 'border-white'}`}></div>
           <p>Loading cart...</p>
         </div>
       </div>
@@ -130,7 +132,7 @@ export default function CheckoutPage() {
             alignItems: 'left',            
             zIndex: 1,
           }}>
-          <h2 id={styles._H1} className="text-left ...  text-stone-50 font-avant_garde_bold"
+          <h2 id={styles._H1} className={`text-left ... font-avant_garde_bold ${theme === 'light' ? 'text-black' : 'text-stone-50'}`}
                               style={{
                                       paddingTop: "100px",
                                       paddingBottom: "60px"
@@ -142,7 +144,7 @@ export default function CheckoutPage() {
             <div className="space-y-6">
               {cartItems.length === 0 ? (
                 <div className="text-left py-8">
-                  <p className="text-gray-400 mb-4">Your cart is empty.</p>
+                  <p className={`${theme === 'light' ? 'text-gray-600' : 'text-gray-400'} mb-4`}>Your cart is empty.</p>
                   <Button 
                     onClick={() => router.push('/products')}
                     className="bg-green-600 hover:bg-green-700"
@@ -154,7 +156,7 @@ export default function CheckoutPage() {
                 cartItems.map((item) => (
                   <div
                     key={item.id || item._id}
-                    className="flex items-center justify-between border-b border-gray-700 pb-4"
+                    className={`flex items-center justify-between border-b pb-4 ${theme === 'light' ? 'border-gray-300' : 'border-gray-700'}`}
                   >
                     {/* Left: Image + Info */}
                     <div className="flex items-center gap-4">
@@ -172,34 +174,34 @@ export default function CheckoutPage() {
                         className="rounded-md object-cover"
                       />
                       <div>
-                        <p className="font-semibold text-stone-50"
+                        <p className={`font-semibold ${theme === 'light' ? 'text-black' : 'text-stone-50'}`}
                             style={{
                             paddingBottom: "5px",}}>{item.title}</p>
-                        <p className="text-sm text-gray-400">${item.price.toFixed(2)} each</p>
+                        <p className={`text-sm ${theme === 'light' ? 'text-gray-600' : 'text-gray-400'}`}>${item.price.toFixed(2)} each</p>
                       </div>
                     </div>
 
                     {/* Right: Quantity + Total */}
                     <div className="flex items-center gap-3">
                       <button
-                        className="px-2 text-xl bg-zinc-800 rounded"
+                        className={`px-2 text-xl rounded ${theme === 'light' ? 'bg-gray-200 text-black hover:bg-gray-300' : 'bg-zinc-800 text-white'}`}
                         onClick={() => handleQuantityChange(item.id || item._id, -1)}
                       >
                         −
                       </button>
-                      <span className="text-stone-50">{item.quantity}</span>
+                      <span className={theme === 'light' ? 'text-black' : 'text-stone-50'}>{item.quantity}</span>
                       <button
-                        className="px-2 text-xl bg-zinc-800 rounded"
+                        className={`px-2 text-xl rounded ${theme === 'light' ? 'bg-gray-200 text-black hover:bg-gray-300' : 'bg-zinc-800 text-white'}`}
                         onClick={() => handleQuantityChange(item.id || item._id, 1)}
                       >
                         +
                       </button>
-                      <p className="w-20 text-right font-medium text-stone-50">
+                      <p className={`w-20 text-right font-medium ${theme === 'light' ? 'text-black' : 'text-stone-50'}`}>
                         ${(item.quantity * item.price).toFixed(2)}
                       </p>
                       <button
                         onClick={() => removeFromCart(item.id || item._id)}
-                        className="text-red-400 hover:text-red-300 ml-2"
+                        className={`ml-2 ${theme === 'light' ? 'text-red-600 hover:text-red-700' : 'text-red-400 hover:text-red-300'}`}
                       >
                         Remove
                       </button>
@@ -209,7 +211,7 @@ export default function CheckoutPage() {
               )}
 
               {cartItems.length > 0 && (
-                <div className="text-right text-xl font-semibold mt-6 text-stone-50">
+                <div className={`text-right text-xl font-semibold mt-6 ${theme === 'light' ? 'text-black' : 'text-stone-50'}`}>
                   Subtotal: ${currentTotal.toFixed(2)}
                 </div>
               )}
@@ -217,20 +219,20 @@ export default function CheckoutPage() {
 
             {/* Checkout Summary */}
             {cartItems.length > 0 && (
-              <div className="bg-stone-800 p-6 rounded-xl shadow-md space-y-4 h-fit">
-                <h3 className="text-xl font-bold text-stone-50">Checkout Summary</h3>
-                <div className="border-t border-zinc-700 pt-4 space-y-2 text-sm">
+              <div className={`p-6 rounded-xl shadow-md space-y-4 h-fit ${theme === 'light' ? 'bg-gray-100 border border-gray-300' : 'bg-stone-800'}`}>
+                <h3 className={`text-xl font-bold ${theme === 'light' ? 'text-black' : 'text-stone-50'}`}>Checkout Summary</h3>
+                <div className={`border-t pt-4 space-y-2 text-sm ${theme === 'light' ? 'border-gray-300' : 'border-zinc-700'}`}>
                   <div className="flex justify-between">
-                    <span className="text-stone-50">Subtotal</span>
-                    <span className="text-stone-50">${currentTotal.toFixed(2)}</span>
+                    <span className={theme === 'light' ? 'text-black' : 'text-stone-50'}>Subtotal</span>
+                    <span className={theme === 'light' ? 'text-black' : 'text-stone-50'}>${currentTotal.toFixed(2)}</span>
                   </div>
-                  <div className="flex justify-between text-gray-400">
-                    <span className="text-stone-50">Sales Tax</span>
-                    <span className="text-stone-50">$0.00</span>
+                  <div className={`flex justify-between ${theme === 'light' ? 'text-gray-600' : 'text-gray-400'}`}>
+                    <span className={theme === 'light' ? 'text-black' : 'text-stone-50'}>Sales Tax</span>
+                    <span className={theme === 'light' ? 'text-black' : 'text-stone-50'}>$0.00</span>
                   </div>
-                  <div className="flex justify-between font-semibold text-white border-t border-zinc-700 pt-2">
-                    <span className="text-stone-50">Grand Total</span>
-                    <span className="text-stone-50">${currentTotal.toFixed(2)}</span>
+                  <div className={`flex justify-between font-semibold border-t pt-2 ${theme === 'light' ? 'text-black border-gray-300' : 'text-white border-zinc-700'}`}>
+                    <span className={theme === 'light' ? 'text-black' : 'text-stone-50'}>Grand Total</span>
+                    <span className={theme === 'light' ? 'text-black' : 'text-stone-50'}>${currentTotal.toFixed(2)}</span>
                   </div>
                 </div>
                 <div className="space-y-3">

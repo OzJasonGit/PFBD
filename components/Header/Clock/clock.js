@@ -26,12 +26,13 @@ class Clock extends Component {
   }
 
   render() {
+    const { theme } = this.props;
     const timeString = this.state.time;
     const [timePart, ampm] = timeString.split(' ');
     
     return (
       <div id="CLOCK"  
-             class="text-center ...  text-stone-200  font-avant_garde_bold"
+             class={`text-center font-avant_garde_bold ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}
              style={{gridArea:"CLOCK", display: "flex", alignItems: "center", gap: "4px"}}>
         <h3 id={styles._H3} style={{margin: 0, lineHeight: "1"}}>
           {timePart}

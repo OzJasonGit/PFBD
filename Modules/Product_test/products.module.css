@@ -40,6 +40,15 @@
   background: #181818;
   display: flex;
   justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+:global(.light) .container {
+  background: rgb(250, 250, 249);
+}
+
+:global(.dark) .container {
+  background: #181818;
 }
 
 
@@ -52,6 +61,15 @@
   background-color: rgb(23, 23, 23);
   margin: 0;
   padding: 60px 0;
+  transition: background-color 0.3s ease;
+}
+
+:global(.light) .center_holder {
+  background-color: rgb(250, 250, 249);
+}
+
+:global(.dark) .center_holder {
+  background-color: rgb(23, 23, 23);
 }
 
 #SHADOW_SECTION {
@@ -64,6 +82,15 @@
   z-index: 1;
   top: 0px;
   left: 0;
+  transition: background-color 0.3s ease;
+}
+
+:global(.light) #SHADOW_SECTION {
+  background-color: rgb(250, 250, 249);
+}
+
+:global(.dark) #SHADOW_SECTION {
+  background-color: rgb(23, 23, 23);
 }
 
 .grid_0_product {

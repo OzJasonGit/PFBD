@@ -9,7 +9,7 @@ import Sides from "../../components/Sides/sides_white";
 import Sides_Nav from "../../components/Sides/sides_nav_blog";
 import Header from "../../components/Header/Header";
 import Subfooter from "../../components/Subfooter2/subfooter2";
-import Footer from "../../components/Footer/Footer";
+import Footer from "../../components/Footer/FooterWrapper";
 
 
 import Link from "next/link";

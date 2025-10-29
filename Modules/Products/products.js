@@ -4,12 +4,13 @@
 import styles from './products.module.css';
 
 import { useRouter } from "next/navigation";
+import { useTheme } from '../../components/Context/ThemeContext';
 
 import PFDBMenu from "../../components/Menu_PFBD/menu_PFBD";
 import Sides from "../../components/Sides/sides";
 import Header from "../../components/Header/Header";
 import Subfooter from "../../components/Subfooter2/subfooter2";
-import Footer from "../../components/Footer/Footer";
+import Footer from "../../components/Footer/FooterWrapper";
 import Subscribetop from "../../components/Subscribetop/subscribetop";
 import Image from "next/image";
 import Link from "next/link";
@@ -17,64 +18,66 @@ import Link from "next/link";
 import parse from "html-react-parser";
 
 const Productsmain = ({ stories, firstStory }) => {
+  const { theme } = useTheme();
   const storiesToMap = stories.filter((story, i) => i != 0);
   const storiesSolo_1 = stories.filter((story, i) => i == 3)
   const storiesSolo_2 = stories.filter((story, i) => i == 2)
   const router = useRouter();
 
-   return (
+  return (
 
     <>
-      <PFDBMenu/>
-      <Header/>
-      <Sides/>
-      <Subscribetop/>
+      {/* <PFDBMenu /> */}
+      <Header />
+      <Sides />
+      <Subscribetop />
 
-      <section id={styles.SHADOW_SECTION_BLOG} class={styles.center_holder}>
-          <div class={styles.grid_0_blogimageholder}>
-             <div class={styles.grid_0_blogimage}>
-              <div id={styles.BLOGIMAGE_HOLDER}>
-                {storiesToMap.map((story, index) => {
-                                  return (
+      <section id={styles.SHADOW_SECTION_BLOG} className={`${theme === 'light' ? 'bg-white' : 'bg-stone-900'}`} class={styles.center_holder}>
+        <div class={styles.grid_0_blogimageholder}>
+          <div class={styles.grid_0_blogimage}>
+            <div id={styles.BLOGIMAGE_HOLDER}>
+              {storiesToMap.map((story, index) => {
+                return (
 
-                                    <div id={styles.BLOGIMAGE}>
+                  <div id={styles.BLOGIMAGE}>
 
-                                      <div class="rounded-md ..." id={styles.B_IMAGE}> 
+                    <div class="rounded-md ..." id={styles.B_IMAGE}>
 
-                                         <Link href="/services">
-                                            <Image
-                                            alt="Picture of the author"
-                                            key={story._id}
-                                            width={500}
-                                            height={500}
-                                            src={story.image}
-                                            style={{
-                                            position: "absolute",
-                                            width: "100%",
-                                            height: "100%",
-                                            objectFit: "cover",
-                                            }}
-                                            />
-                                         </Link>
-                                        
-                                      </div> 
+                      <Link href="/services">
+                        <Image
+                          alt="Picture of the author"
+                          key={story._id}
+                          width={500}
+                          height={500}
+                          src={story.image}
+                          style={{
+                            position: "absolute",
+                            width: "100%",
+                            height: "100%",
+                            objectFit: "cover",
+                          }}
+                        />
+                      </Link>
 
-                                        <div id={styles.PRODUCT_TEXT}> 
+                    </div>
 
-                                          <h2 id={styles._H2} class=" text-stone-200 ... font-avant_garde_bold ...">
-                                            {parse(story.title || "")}
-                                          </h2>    
-                                          <br/>                                  
-                                          <h3 id={styles._H3} class="text-stone-400 ... font-avant_garde_bold ...">
-                                            {parse(story.subtitle || "")}
-                                          </h3>
+                    <div id={styles.PRODUCT_TEXT}>
 
-                                        </div>
-                                      </div>                               
-                )})}
-              </div>              
+                      <h2 id={styles._H2} class={`font-avant_garde_bold ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}>
+                        {parse(story.title || "")}
+                      </h2>
+                      <br />
+                      <h3 id={styles._H3} class={`font-avant_garde_bold ${theme === 'light' ? 'text-black' : 'text-stone-400'}`}>
+                        {parse(story.subtitle || "")}
+                      </h3>
+
+                    </div>
+                  </div>
+                )
+              })}
             </div>
           </div>
+        </div>
       </section>
 
 
@@ -90,85 +93,87 @@ const Productsmain = ({ stories, firstStory }) => {
 
               <div id={styles.BLOGIMAGE_HOLDER_GRID_1}>
                 {storiesSolo_1.map((story, index) => {
-                                  return (
+                  return (
 
-                                    <div id={styles.BLOGIMAGE}>
+                    <div id={styles.BLOGIMAGE}>
 
-                                      <div class="rounded-md ..." id={styles.B_IMAGE}> 
+                      <div class="rounded-md ..." id={styles.B_IMAGE}>
 
-                                         <Link href="/services">
-                                            <Image
-                                            alt="Picture of the author"
-                                            key={story._id}
-                                            width={500}
-                                            height={500}
-                                            src={story.image}
-                                            style={{
-                                            position: "absolute",
-                                            width: "100%",
-                                            height: "100%",
-                                            objectFit: "cover",
-                                            }}
-                                            />
-                                         </Link>
-                                        
-                                      </div> 
+                        <Link href="/services">
+                          <Image
+                            alt="Picture of the author"
+                            key={story._id}
+                            width={500}
+                            height={500}
+                            src={story.image}
+                            style={{
+                              position: "absolute",
+                              width: "100%",
+                              height: "100%",
+                              objectFit: "cover",
+                            }}
+                          />
+                        </Link>
 
-                                        <div id={styles.PRODUCT_TEXT}> 
+                      </div>
 
-                                          <h2 id={styles._H2} class=" text-stone-200 ... font-avant_garde_bold ...">
-                                            {parse(story.title || "")}
-                                          </h2>  
-                                          <br/>                                      
-                                          <h3 id={styles._H3} class="text-stone-400 ... font-avant_garde_bold ...">
-                                            {parse(story.subtitle || "")}
-                                          </h3>
+                      <div id={styles.PRODUCT_TEXT}>
 
-                                        </div>
-                                      </div>                               
-                )})}
+                        <h2 id={styles._H2} class={`font-avant_garde_bold ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}>
+                          {parse(story.title || "")}
+                        </h2>
+                        <br />
+                        <h3 id={styles._H3} class={`font-avant_garde_bold ${theme === 'light' ? 'text-black' : 'text-stone-400'}`}>
+                          {parse(story.subtitle || "")}
+                        </h3>
+
+                      </div>
+                    </div>
+                  )
+                })}
               </div>
 
 
               <div id={styles.BLOGIMAGE_HOLDER_GRID_2}>
                 {storiesSolo_1.map((story, index) => {
-                                  return (
+                  return (
 
-                                    <div id={styles.BLOGIMAGE_2}>
+                    <div id={styles.BLOGIMAGE_2}>
 
-                                      <div class="rounded-md ..." id={styles.B_IMAGE}> 
+                      <div class="rounded-md ..." id={styles.B_IMAGE}>
 
-                                         <Link href="/services">
-                                            <Image
-                                            alt="Picture of the author"
-                                            key={story._id}
-                                            width={500}
-                                            height={500}
-                                            src={story.image}
-                                            style={{
-                                            position: "absolute",
-                                            width: "100%",
-                                            height: "100%",
-                                            objectFit: "cover",
-                                            }}
-                                            />
-                                         </Link>
-                                        
-                                      </div> 
+                        <Link href="/services">
+                          <Image
+                            alt="Picture of the author"
+                            key={story._id}
+                            width={500}
+                            height={500}
+                            src={story.image}
+                            style={{
+                              position: "absolute",
+                              width: "100%",
+                              height: "100%",
+                              objectFit: "cover",
+                            }}
+                          />
+                        </Link>
 
-                                        <div id={styles.PRODUCT_TEXT}> 
+                      </div>
 
-                                          <h2 id={styles._H2} class=" text-stone-200 ... font-avant_garde_bold ...">
-                                            {parse(story.title || "")}
-                                          </h2>  
-                                          <br/>                                      
-                                          <h3 id={styles._H3} class="text-stone-400 ... font-avant_garde_bold ...">
-                                            {parse(story.subtitle || "")}
-                                          </h3>
+                      <div id={styles.PRODUCT_TEXT}>
 
-                                        </div>
-                                      </div>                               
-                )})}
+                        <h2 id={styles._H2} class={`font-avant_garde_bold ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}>
+                          {parse(story.title || "")}
+                        </h2>
+                        <br />
+                        <h3 id={styles._H3} class={`font-avant_garde_bold ${theme === 'light' ? 'text-black' : 'text-stone-400'}`}>
+                          {parse(story.subtitle || "")}
+                        </h3>
+
+                      </div>
+                    </div>
+                  )
+                })}
               </div>
 
             </div>
@@ -191,51 +196,52 @@ const Productsmain = ({ stories, firstStory }) => {
 
 
       <section id={styles.SHADOW_SECTION_BLOG} class={styles.center_holder}>
-            <div class={styles.grid_0_blogimageholder}>
-              <div class={styles.grid_0_blogimage}>
-                <div id={styles.BLOGIMAGE_HOLDER}>
-                  {storiesToMap.map((story, index) => {
-                                    return (
+        <div class={styles.grid_0_blogimageholder}>
+          <div class={styles.grid_0_blogimage}>
+            <div id={styles.BLOGIMAGE_HOLDER}>
+              {storiesToMap.map((story, index) => {
+                return (
 
-                                      <div id={styles.BLOGIMAGE}>
+                  <div id={styles.BLOGIMAGE}>
 
-                                        <div class="rounded-md ..." id={styles.B_IMAGE}> 
+                    <div class="rounded-md ..." id={styles.B_IMAGE}>
 
-                                          <Link href="/services">
-                                              <Image
-                                              alt="Picture of the author"
-                                              key={story._id}
-                                              width={500}
-                                              height={500}
-                                              src={story.image}
-                                              style={{
-                                              position: "absolute",
-                                              width: "100%",
-                                              height: "100%",
-                                              objectFit: "cover",
-                                              }}
-                                              />
-                                          </Link>
-                                          
-                                        </div> 
+                      <Link href="/services">
+                        <Image
+                          alt="Picture of the author"
+                          key={story._id}
+                          width={500}
+                          height={500}
+                          src={story.image}
+                          style={{
+                            position: "absolute",
+                            width: "100%",
+                            height: "100%",
+                            objectFit: "cover",
+                          }}
+                        />
+                      </Link>
 
-                                          <div id={styles.PRODUCT_TEXT}> 
+                    </div>
 
-                                            <h2 id={styles._H2} class=" text-stone-200 ... font-avant_garde_bold ...">
-                                              {parse(story.title || "")}
-                                            </h2>    
-                                            <br/>                                    
-                                            <h3 id={styles._H3} class="text-stone-400 ... font-avant_garde_bold ...">
-                                              {parse(story.subtitle || "")}
-                                            </h3>
+                    <div id={styles.PRODUCT_TEXT}>
 
-                                          </div>
-                                        </div>                               
-                  )})}
-                </div>              
-              </div>
+                      <h2 id={styles._H2} class={`font-avant_garde_bold ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}>
+                        {parse(story.title || "")}
+                      </h2>
+                      <br />
+                      <h3 id={styles._H3} class={`font-avant_garde_bold ${theme === 'light' ? 'text-black' : 'text-stone-400'}`}>
+                        {parse(story.subtitle || "")}
+                      </h3>
+
+                    </div>
+                  </div>
+                )
+              })}
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
 
 
 
@@ -256,7 +262,7 @@ const Productsmain = ({ stories, firstStory }) => {
 
 
 
-        
+
 
 
 
@@ -268,85 +274,87 @@ const Productsmain = ({ stories, firstStory }) => {
 
               <div id={styles.BLOGIMAGE_HOLDER_GRID_1}>
                 {storiesSolo_2.map((story, index) => {
-                                  return (
+                  return (
 
-                                    <div id={styles.BLOGIMAGE}>
+                    <div id={styles.BLOGIMAGE}>
 
-                                      <div class="rounded-md ..." id={styles.B_IMAGE}> 
+                      <div class="rounded-md ..." id={styles.B_IMAGE}>
 
-                                         <Link href="/services">
-                                            <Image
-                                            alt="Picture of the author"
-                                            key={story._id}
-                                            width={500}
-                                            height={500}
-                                            src={story.image}
-                                            style={{
-                                            position: "absolute",
-                                            width: "100%",
-                                            height: "100%",
-                                            objectFit: "cover",
-                                            }}
-                                            />
-                                         </Link>
-                                        
-                                      </div> 
+                        <Link href="/services">
+                          <Image
+                            alt="Picture of the author"
+                            key={story._id}
+                            width={500}
+                            height={500}
+                            src={story.image}
+                            style={{
+                              position: "absolute",
+                              width: "100%",
+                              height: "100%",
+                              objectFit: "cover",
+                            }}
+                          />
+                        </Link>
 
-                                        <div id={styles.PRODUCT_TEXT}> 
+                      </div>
 
-                                          <h2 id={styles._H2} class=" text-stone-200 ... font-avant_garde_bold ...">
-                                            {parse(story.title || "")}
-                                          </h2>    
-                                          <br/>                                    
-                                          <h3 id={styles._H3} class="text-stone-400 ... font-avant_garde_bold ...">
-                                            {parse(story.subtitle || "")}
-                                          </h3>
+                      <div id={styles.PRODUCT_TEXT}>
 
-                                        </div>
-                                      </div>                               
-                )})}
+                        <h2 id={styles._H2} class=" text-stone-200 ... font-avant_garde_bold ...">
+                          {parse(story.title || "")}
+                        </h2>
+                        <br />
+                        <h3 id={styles._H3} class="text-stone-400 ... font-avant_garde_bold ...">
+                          {parse(story.subtitle || "")}
+                        </h3>
+
+                      </div>
+                    </div>
+                  )
+                })}
               </div>
 
 
               <div id={styles.BLOGIMAGE_HOLDER_GRID_2}>
                 {storiesSolo_2.map((story, index) => {
-                                  return (
+                  return (
 
-                                    <div id={styles.BLOGIMAGE_2}>
+                    <div id={styles.BLOGIMAGE_2}>
 
-                                      <div class="rounded-md ..." id={styles.B_IMAGE}> 
+                      <div class="rounded-md ..." id={styles.B_IMAGE}>
 
-                                         <Link href="/services">
-                                            <Image
-                                            alt="Picture of the author"
-                                            key={story._id}
-                                            width={500}
-                                            height={500}
-                                            src={story.image}
-                                            style={{
-                                            position: "absolute",
-                                            width: "100%",
-                                            height: "100%",
-                                            objectFit: "cover",
-                                            }}
-                                            />
-                                         </Link>
-                                        
-                                      </div> 
+                        <Link href="/services">
+                          <Image
+                            alt="Picture of the author"
+                            key={story._id}
+                            width={500}
+                            height={500}
+                            src={story.image}
+                            style={{
+                              position: "absolute",
+                              width: "100%",
+                              height: "100%",
+                              objectFit: "cover",
+                            }}
+                          />
+                        </Link>
 
-                                        <div id={styles.PRODUCT_TEXT}> 
+                      </div>
 
-                                          <h2 id={styles._H2} class=" text-stone-200 ... font-avant_garde_bold ...">
-                                            {parse(story.title || "")}
-                                          </h2>    
-                                          <br/>                                    
-                                          <h3 id={styles._H3} class="text-stone-400 ... font-avant_garde_bold ...">
-                                            {parse(story.subtitle || "")}
-                                          </h3>
+                      <div id={styles.PRODUCT_TEXT}>
 
-                                        </div>
-                                      </div>                               
-                )})}
+                        <h2 id={styles._H2} class=" text-stone-200 ... font-avant_garde_bold ...">
+                          {parse(story.title || "")}
+                        </h2>
+                        <br />
+                        <h3 id={styles._H3} class="text-stone-400 ... font-avant_garde_bold ...">
+                          {parse(story.subtitle || "")}
+                        </h3>
+
+                      </div>
+                    </div>
+                  )
+                })}
               </div>
 
             </div>
@@ -377,62 +385,63 @@ const Productsmain = ({ stories, firstStory }) => {
 
 
 
-        <section id={styles.SHADOW_SECTION_BLOG} class={styles.center_holder}>
-          <div class={styles.grid_0_blogimageholder}>
-             <div class={styles.grid_0_blogimage}>
-              <div id={styles.BLOGIMAGE_HOLDER}>
-                {storiesToMap.map((story, index) => {
-                                  return (
+      <section id={styles.SHADOW_SECTION_BLOG} class={styles.center_holder}>
+        <div class={styles.grid_0_blogimageholder}>
+          <div class={styles.grid_0_blogimage}>
+            <div id={styles.BLOGIMAGE_HOLDER}>
+              {storiesToMap.map((story, index) => {
+                return (
 
-                                    <div id={styles.BLOGIMAGE}>
+                  <div id={styles.BLOGIMAGE}>
 
-                                      <div class="rounded-md ..." id={styles.B_IMAGE}> 
+                    <div class="rounded-md ..." id={styles.B_IMAGE}>
 
-                                         <Link href="/services">
-                                            <Image
-                                            alt="Picture of the author"
-                                            key={story._id}
-                                            width={500}
-                                            height={500}
-                                            src={story.image}
-                                            style={{
-                                            position: "absolute",
-                                            width: "100%",
-                                            height: "100%",
-                                            objectFit: "cover",
-                                            }}
-                                            />
-                                         </Link>
-                                        
-                                      </div> 
+                      <Link href="/services">
+                        <Image
+                          alt="Picture of the author"
+                          key={story._id}
+                          width={500}
+                          height={500}
+                          src={story.image}
+                          style={{
+                            position: "absolute",
+                            width: "100%",
+                            height: "100%",
+                            objectFit: "cover",
+                          }}
+                        />
+                      </Link>
 
-                                        <div id={styles.PRODUCT_TEXT}> 
+                    </div>
 
-                                          <h2 id={styles._H2} class=" text-stone-200 ... font-avant_garde_bold ...">
-                                            {parse(story.title || "")}
-                                          </h2>   
-                                          <br/>                                     
-                                          <h3 id={styles._H3} class="text-stone-400 ... font-avant_garde_bold ...">
-                                            {parse(story.subtitle || "")}
-                                          </h3>
+                    <div id={styles.PRODUCT_TEXT}>
 
-                                        </div>
-                                      </div>                               
-                )})}
-              </div>              
+                      <h2 id={styles._H2} class={`font-avant_garde_bold ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}>
+                        {parse(story.title || "")}
+                      </h2>
+                      <br />
+                      <h3 id={styles._H3} class={`font-avant_garde_bold ${theme === 'light' ? 'text-black' : 'text-stone-400'}`}>
+                        {parse(story.subtitle || "")}
+                      </h3>
+
+                    </div>
+                  </div>
+                )
+              })}
             </div>
           </div>
+        </div>
       </section>
 
-     
-      <Subfooter/>
-      <Footer/>
-      
+
+      <Subfooter />
+      <Footer />
+
     </>
 
-    
 
- );
+
+  );
 };
 
 export default Productsmain;

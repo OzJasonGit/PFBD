@@ -3,12 +3,13 @@
 import styles from './bloghome.module.css';
 import { useRouter } from "next/navigation";
 import { useParams, useNavigate } from "next/navigation";
+import { useTheme } from "../../components/Context/ThemeContext";
 
 import PFDBMenu from "../../components/Menu_PFBD/menu_PFBD";
 import Sides from "../../components/Sides/sides";
 import Header from "../../components/Header/Header";
 import Subfooter from "../../components/Subfooter2/subfooter2";
-import Footer from "../../components/Footer/Footer";
+import Footer from "../../components/Footer/FooterWrapper";
 import Subscribetop from "../../components/Subscribetop/subscribetop";
 
 import logo from './bimcopilot_logo_white.svg';
@@ -23,6 +24,7 @@ import parse from "html-react-parser";
 
 
 const Bloghomemain = ({ stories, firstStory }) => {
+  const { theme } = useTheme();
   const params = useParams();
   const storiesToMap = stories.filter((story, i) => i != 0);
 
@@ -30,7 +32,7 @@ const Bloghomemain = ({ stories, firstStory }) => {
   return (
 
     <>
-      <PFDBMenu />
+      {/* <PFDBMenu /> */}
       <div id={styles.main}></div>
       <Header />
       <Sides />
@@ -71,8 +73,10 @@ const Bloghomemain = ({ stories, firstStory }) => {
                           }} />
                         </div>
 
-                        {/* Dark overlay */}
-                        <div className="absolute inset-0 bg-black/80 opacity-0 transition-opacity duration-500 group-hover:opacity-100 " />
+                        {/* Theme-aware overlay */}
+                        <div className={`absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 ${
+                          theme === 'light' ? 'bg-white/30' : 'bg-black/80'
+                        }`} />
 
                         {/* Icons */}
                         <div id={styles.PRODUCT_OVERLAY_GRID} style={{ position: "absolute", width: "100%", height: "100%",  left: "0px", top:"0px", zIndex:"30"}}>
@@ -83,7 +87,7 @@ const Bloghomemain = ({ stories, firstStory }) => {
                             <Image src={text_logo} alt="Logo Text" fill style={{ objectFit: "cover" }} quality={100} loading="lazy" placeholder="blur" blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q==" />
                           </div> 
                           <div style={{ gridArea: "TITLE", position: "relative", zIndex: 100}}>
-                            <h3  id={styles._H2}  className="text-center text-stone-50 font-avant_garde_bold opacity-0 translate-y-10 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">{parse(story.title)}</h3>
+                            <h3  id={styles._H2}  className={`text-center font-avant_garde_bold opacity-0 translate-y-10 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 ${theme === 'light' ? 'text-black' : 'text-stone-50'}`}>{parse(story.title || "")}</h3>
                           </div>   
                         </div>
                         
@@ -92,14 +96,14 @@ const Bloghomemain = ({ stories, firstStory }) => {
                     </div>
 
                     <div id={styles.BLOG_TEXT}>
-                      <h3 id={styles._H2} class=" text-stone-200 ... font-avant_garde_bold ...">
-                        {parse(story.title)}
+                      <h3 id={styles._H2} class={`font-avant_garde_bold ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}>
+                        {parse(story.title || "")}
                       </h3>
 
                       <br />
 
-                      <h4 id={styles._H3} class="text-stone-400 ... font-avant_garde_bold ...">
-                        {parse(story.subtitle)}
+                      <h4 id={styles._H3} class={`font-avant_garde_bold ${theme === 'light' ? 'text-black' : 'text-stone-400'}`}>
+                        {parse(story.subtitle || "")}
                       </h4>
                     </div>
 

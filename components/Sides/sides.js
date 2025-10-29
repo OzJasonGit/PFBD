@@ -7,8 +7,7 @@ import styles from './sides.module.css'
 import React, { Component } from 'react';
 import Link from 'next/link'
 import 'antd/dist/reset.css';
-
-
+import { useTheme } from '../Context/ThemeContext';
 
 import Image from "next/image";
 import pfbdImage from './pfbd_3.png';
@@ -18,9 +17,13 @@ import { height, width } from '@mui/system';
 
 
 
-export default class Sides extends Component {
+class SidesInner extends Component {
+  static defaultProps = {
+    theme: 'dark',
+  };
 
-    render() {
+  render() {
+    const { theme } = this.props;
         return (
 
 
@@ -128,7 +131,7 @@ export default class Sides extends Component {
                             <div id={styles.RIGHT_FIXED_STICKY}>
                                 <div id={styles.PFBD_LINKS}>
                                     <div id={styles.ICON_PLACEHOLDER} class={styles.container}>
-                                        <h3 class=" font-avant_garde_bold" id={styles.SIDE_TEXT} >Welcome     to   <a><Link class="text-emerald-200" href="/">plasticfreebydesign.com</Link></a> </h3>
+                                        <h3 class={`font-avant_garde_bold ${theme === 'light' ? 'text-black' : ''}`} id={styles.SIDE_TEXT} >Welcome     to   <a><Link class={theme === 'light' ? 'text-emerald-600' : 'text-emerald-200'} href="/">plasticfreebydesign.com</Link></a> </h3>
                                     </div>
                                 </div>
 
@@ -139,19 +142,19 @@ export default class Sides extends Component {
                                     <div id={styles.NAV_LINK}>
 
                                         <Link class="" id={styles.ANCHOR_1} href="/">                                            
-                                            <FontAwesomeIcon  id={styles.CENTER} icon={faLinkedin} size="2xs" className="cursor-pointer transition-colors duration-300 text-stone-50 hover:text-emerald-300 "     />                                       
+                                            <FontAwesomeIcon  id={styles.CENTER} icon={faLinkedin} size="2xs" className={`cursor-pointer transition-colors duration-300 ${theme === 'light' ? 'text-black hover:text-emerald-600' : 'text-stone-50 hover:text-emerald-300'}`}     />                                       
                                         </Link>
 
                                         <Link class="" id={styles.ANCHOR_2} href="/">
-                                            <FontAwesomeIcon  id={styles.CENTER} icon={faInstagram} size="2xs" className="cursor-pointer transition-colors duration-300 text-stone-50 hover:text-emerald-300"/>  
+                                            <FontAwesomeIcon  id={styles.CENTER} icon={faInstagram} size="2xs" className={`cursor-pointer transition-colors duration-300 ${theme === 'light' ? 'text-black hover:text-emerald-600' : 'text-stone-50 hover:text-emerald-300'}`}/>  
                                         </Link>
 
                                         <Link class="" id={styles.ANCHOR_3} href="/">
-                                            <FontAwesomeIcon  id={styles.CENTER} icon={faYoutube} size="2xs" className="cursor-pointer transition-colors duration-300 text-stone-50 hover:text-emerald-300"/>  
+                                            <FontAwesomeIcon  id={styles.CENTER} icon={faYoutube} size="2xs" className={`cursor-pointer transition-colors duration-300 ${theme === 'light' ? 'text-black hover:text-emerald-600' : 'text-stone-50 hover:text-emerald-300'}`}/>  
                                         </Link>
 
                                         <Link class="" id={styles.ANCHOR_4} href="/">
-                                            <FontAwesomeIcon  id={styles.CENTER} icon={faSquareXTwitter} size="2xs" className="cursor-pointer transition-colors duration-300 text-stone-50 hover:text-emerald-300"/>  
+                                            <FontAwesomeIcon  id={styles.CENTER} icon={faSquareXTwitter} size="2xs" className={`cursor-pointer transition-colors duration-300 ${theme === 'light' ? 'text-black hover:text-emerald-600' : 'text-stone-50 hover:text-emerald-300'}`}/>  
                                         </Link>
                                       
                                     </div>
@@ -173,6 +176,10 @@ export default class Sides extends Component {
         )
 
     }
+}
 
-
+// Wrapper to provide theme context
+export default function Sides() {
+  const { theme } = useTheme();
+  return <SidesInner theme={theme} />;
 }
