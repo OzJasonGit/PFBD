@@ -176,6 +176,33 @@
 }
 
 
+
+
+#PRODUCT_OVERLAY_GRID_2 {
+  display: grid;
+  grid-template-columns: 20px 50px 40px 40px 30px 1fr 30px 40px 40px 50px 20px;
+  grid-template-rows: 20px 50px 40px 40px 30px auto 30px 40px 40px 50px 20px;
+  grid-template-areas:
+    "MAIN MAIN MAIN MAIN MAIN MAIN MAIN . . . ."
+    "MAIN MAIN MAIN MAIN MAIN MAIN MAIN . . . ."
+    "MAIN MAIN MAIN MAIN MAIN MAIN MAIN . . . ."
+    "MAIN MAIN MAIN MAIN MAIN MAIN MAIN . . . ."
+    "MAIN MAIN MAIN MAIN MAIN MAIN MAIN . . . ."
+    "MAIN MAIN MAIN MAIN MAIN MAIN MAIN . . . ."
+    ". . . . . . . . . . ."
+    ". . . . . . . . . . ."
+    ". . . . . . . . . . .";
+}
+
+
+
+
+
+
+
+
+
+
 #PFBD_INTRO {
   display: grid;
   grid-area: MAIN-AREA;
@@ -481,7 +508,7 @@
       grid-template-areas:
         ". . . . . . ."
         "LOGO LOGO LOGO . . . ."
-        "TITLE TITLE TITLE TITLE TITLE . ."
+        "TITLE TITLE TITLE TITLE TITLE TITLE ."
         "SUBTITLE SUBTITLE SUBTITLE SUBTITLE . . .";
       position: relative;
       right: -15px;
@@ -1255,7 +1282,7 @@
 
 
   #TITLE {
-    margin-top: -70px;
+    margin-top: -60px;
   }
 
  #SUBTITLE {

@@ -216,8 +216,8 @@ const PFBD = () => {
                         </Link>
 
                         <div className={styles.text}>
-                          <h2 id={styles._H2} className={styles.title} class={`font-avant_garde_bold ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}>{parse(product.title)} </h2>
-                          <p id={styles._H3} className={styles.subtitle} class={`font-geistmono_regular ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}>{parse(product.subtitle)}</p>
+                          <h2 id={styles._H2} className={`${styles.title} font-avant_garde_bold ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}>{parse(product.title)} </h2>
+                          <p id={styles._H3} className={`${styles.subtitle} font-geistmono_regular ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}>{parse(product.subtitle)}</p>
                         </div>
                       </div>
                     ))}
@@ -267,8 +267,8 @@ const PFBD = () => {
 
                               </Link>
                               <div className={styles.text}>
-                                <h2 id={styles._H2} className={styles.title} class={`font-avant_garde_bold ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}>{parse(group[3].title)}</h2>
-                                <p id={styles._H3} className={styles.subtitle} class={`font-geistmono_regular ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}>{parse(group[3].subtitle)}</p>
+                                <h2 id={styles._H2} className={`${styles.title} font-avant_garde_bold ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}>{parse(group[3].title)}</h2>
+                                <p id={styles._H3} className={`${styles.subtitle} font-geistmono_regular ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}>{parse(group[3].subtitle)}</p>
                               </div>
                             </div>
 
@@ -306,8 +306,8 @@ const PFBD = () => {
 
                               </Link>
                               <div className={styles.text}>
-                                <h2 id={styles._H2} className={styles.title} class={`font-avant_garde_bold ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}>{parse(group[4].title)}</h2>
-                                <p id={styles._H3} className={styles.subtitle} class={`font-geistmono_regular ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}>{parse(group[4].subtitle)}</p>
+                                <h2 id={styles._H2} className={`${styles.title} font-avant_garde_bold ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}>{parse(group[4].title)}</h2>
+                                <p id={styles._H3} className={`${styles.subtitle} font-geistmono_regular ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}>{parse(group[4].subtitle)}</p>
                               </div>
                             </div>
                           </>
@@ -415,8 +415,8 @@ const PFBD = () => {
 
                               </Link>
                               <div className={styles.text}>
-                                <h2 className={styles.title} class={`font-avant_garde_bold ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}>{parse(group[3].title)}</h2>
-                                <p id={styles._H3} className={styles.subtitle} class={`font-geistmono_regular ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}>{parse(group[3].subtitle)}</p>
+                                <h2 className={`${styles.title} font-avant_garde_bold ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}>{parse(group[3].title)}</h2>
+                                <p id={styles._H3} className={`${styles.subtitle} font-geistmono_regular ${theme === 'light' ? 'text-black' : 'text-stone-200'}`}>{parse(group[3].subtitle)}</p>
                               </div>
                             </div>
 
